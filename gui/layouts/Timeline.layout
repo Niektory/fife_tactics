@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout >
+    <Window Type="TaharezLook/FrameWindow" Name="Root" >
+        <Property Name="Text" Value="Upcoming Events" />
+        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
+        <Property Name="TitlebarEnabled" Value="True" />
+        <Property Name="UnifiedAreaRect" Value="{{1,-400},{1,-160},{1,-170},{1,0}}" />
+        <Property Name="Visible" Value="False" />
+        <Window Type="TaharezLook/Listbox" Name="TextBox" >
+            <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{1,-5},{1,-5}}" />
+        </Window>
+    </Window>
+</GUILayout>

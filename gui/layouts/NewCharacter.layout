@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout >
+    <Window Type="TaharezLook/FrameWindow" Name="Root" >
+        <Property Name="Text" Value="Komplex Karacter Kreator" />
+        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
+        <Property Name="TitlebarEnabled" Value="True" />
+        <Property Name="UnifiedAreaRect" Value="{{0.5,-150},{0.5,-190},{0.5,150},{0.5,190}}" />
+        <Property Name="Visible" Value="False" />
+        <Window Type="TaharezLook/StaticText" Name="NameLabel" >
+            <Property Name="Text" Value="Name" />
+            <Property Name="UnifiedPosition" Value="{{0,20},{0,20}}" />
+            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="HorzFormatting" Value="RightAligned" />
+		</Window>
+        <Window Type="TaharezLook/StaticText" Name="APLabel" >
+            <Property Name="Text" Value="AP" />
+            <Property Name="UnifiedPosition" Value="{{0,20},{0,50}}" />
+            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="HorzFormatting" Value="RightAligned" />
+		</Window>
+        <Window Type="TaharezLook/StaticText" Name="HPLabel" >
+            <Property Name="Text" Value="HP" />
+            <Property Name="UnifiedPosition" Value="{{0,20},{0,80}}" />
+            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="HorzFormatting" Value="RightAligned" />
+		</Window>
+        <Window Type="TaharezLook/StaticText" Name="TeamLabel" >
+            <Property Name="Text" Value="Team" />
+            <Property Name="UnifiedPosition" Value="{{0,20},{0,110}}" />
+            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
+            <Property Name="FrameEnabled" Value="False" />
+            <Property Name="BackgroundEnabled" Value="False" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="HorzFormatting" Value="RightAligned" />
+		</Window>
+        <Window Type="TaharezLook/Editbox" Name="NameEdit" >
+            <Property Name="MaxTextLength" Value="30" />
+            <Property Name="UnifiedPosition" Value="{{0,70},{0,13}}" />
+            <Property Name="UnifiedSize" Value="{{0,200},{0,28}}" />
+            <Property Name="TextParsingEnabled" Value="False" />
+        </Window>
+        <Window Type="TaharezLook/Editbox" Name="APEdit" >
+            <Property Name="Text" Value="6" />
+            <Property Name="MaxTextLength" Value="2" />
+            <Property Name="UnifiedPosition" Value="{{0,70},{0,43}}" />
+            <Property Name="UnifiedSize" Value="{{0,50},{0,28}}" />
+            <Property Name="TextParsingEnabled" Value="False" />
+            <Property Name="ValidationString" Value="[[:digit:]]*" />
+        </Window>
+        <Window Type="TaharezLook/Editbox" Name="HPEdit" >
+            <Property Name="Text" Value="20" />
+            <Property Name="MaxTextLength" Value="2" />
+            <Property Name="UnifiedPosition" Value="{{0,70},{0,73}}" />
+            <Property Name="UnifiedSize" Value="{{0,50},{0,28}}" />
+            <Property Name="TextParsingEnabled" Value="False" />
+            <Property Name="ValidationString" Value="[[:digit:]]*" />
+        </Window>
+        <Window Type="TaharezLook/Editbox" Name="TeamEdit" >
+            <Property Name="Text" Value="0" />
+            <Property Name="MaxTextLength" Value="2" />
+            <Property Name="UnifiedPosition" Value="{{0,70},{0,103}}" />
+            <Property Name="UnifiedSize" Value="{{0,50},{0,28}}" />
+            <Property Name="TextParsingEnabled" Value="False" />
+            <Property Name="ValidationString" Value="[[:digit:]]*" />
+        </Window>
+        <Window Type="TaharezLook/Button" Name="OKButton" >
+            <Property Name="Text" Value="OK" />
+            <Property Name="UnifiedAreaRect" Value="{{1,-90},{1,-40},{1,-20},{1,-15}}" />
+        </Window>
+    </Window>
+</GUILayout>

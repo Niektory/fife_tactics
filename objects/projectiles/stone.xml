@@ -1,0 +1,8 @@
+<?fife type="object"?>
+<object id="stone" namespace="tactics" blocking="0" static="0">
+	<action id="none">
+		<animation atlas="stone.png" height="20" width="20">
+			<direction delay="10000" dir="0" frames="1" />
+		</animation>
+	</action>
+</object>

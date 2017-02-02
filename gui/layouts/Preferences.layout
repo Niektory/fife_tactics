@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout >
+    <Window Type="TaharezLook/FrameWindow" Name="Root" >
+        <Property Name="Text" Value="Preferences" />
+        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
+        <Property Name="TitlebarEnabled" Value="True" />
+        <Property Name="UnifiedAreaRect" Value="{{0.5,-150},{0.5,-225},{0.5,150},{0.5,225}}" />
+        <Property Name="Visible" Value="False" />
+        <Window Type="TaharezLook/TabControl" Name="TabControl" >
+            <Property Name="TabHeight" Value="{0,25}" />
+            <Property Name="TabTextPadding" Value="{0,5}" />
+            <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{1,-5},{1,-45}}" />
+        </Window>
+        <Window Type="DefaultWindow" Name="TabPaneVideo" >
+            <Property Name="Text" >Video</Property>
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+		    <Window Type="TaharezLook/StaticText" Name="TabPaneVideo/ResolutionLabel" >
+		        <Property Name="Text" Value="Resolution (requires restart):" />
+		        <Property Name="UnifiedPosition" Value="{{0,5},{0,5}}" />
+		        <Property Name="UnifiedSize" Value="{{1,-10},{0,20}}" />
+		        <Property Name="FrameEnabled" Value="False" />
+		        <Property Name="BackgroundEnabled" Value="False" />
+		        <Property Name="VertFormatting" Value="TopAligned" />
+		        <Property Name="HorzFormatting" Value="LeftAligned" />
+			</Window>
+            <Window Type="TaharezLook/Listbox" Name="TabPaneVideo/Resolutions" >
+                <Property Name="UnifiedAreaRect" Value="{{0,5},{0,25},{1,-5},{1,-30}}" />
+            </Window>
+            <Window Type="TaharezLook/Checkbox" Name="TabPaneVideo/Fullscreen" >
+		        <Property Name="Text" Value="Fullscreen (requires restart)" />
+                <Property Name="UnifiedAreaRect" Value="{{0,5},{1,-25},{1,-5},{1,-5}}" />
+            </Window>
+        </Window>
+        <Window Type="DefaultWindow" Name="TabPaneAudio" >
+            <Property Name="Text" >Audio</Property>
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Window Type="TaharezLook/Checkbox" Name="TabPaneAudio/Enable" >
+		        <Property Name="Text" Value="Enable sound" />
+                <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{1,-5},{0,25}}" />
+            </Window>
+		    <Window Type="TaharezLook/StaticText" Name="TabPaneAudio/VolumeLabel" >
+		        <Property Name="Text" Value="Volume:" />
+		        <Property Name="UnifiedPosition" Value="{{0,5},{0,30}}" />
+		        <Property Name="UnifiedSize" Value="{{0,80},{0,20}}" />
+		        <Property Name="FrameEnabled" Value="False" />
+		        <Property Name="BackgroundEnabled" Value="False" />
+		        <Property Name="VertFormatting" Value="TopAligned" />
+		        <Property Name="HorzFormatting" Value="LeftAligned" />
+			</Window>
+            <Window Type="TaharezLook/HorizontalScrollbar" Name="TabPaneAudio/VolumeSlider" >
+                <Property Name="PageSize" Value="0" />
+                <Property Name="StepSize" Value="1" />
+                <Property Name="OverlapSize" Value="0" />
+                <Property Name="DocumentSize" Value="10" />
+                <Property Name="ScrollPosition" Value="10" />
+                <Property Name="UnifiedAreaRect" Value="{{0,5},{0,55},{1,-5},{0,65}}" />
+            </Window>
+        </Window>
+        <Window Type="DefaultWindow" Name="TabPaneControls" >
+            <Property Name="Text" >Hotkeys</Property>
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+            <Window Type="TaharezLook/ScrollablePane" Name="TabPaneControls/ScrollablePane" >
+                <Property Name="UnifiedAreaRect" Value="{{0,0},{0,5},{1,0},{1,-5}}" />
+	            <Property Name="ForceVertScrollbar" Value="True" />
+            </Window>
+        </Window>
+
+        <Window Type="TaharezLook/Button" Name="OKButton" >
+            <Property Name="Text" Value="OK" />
+            <Property Name="UnifiedAreaRect" Value="{{1,-85},{1,-35},{1,-15},{1,-10}}" />
+        </Window>
+    </Window>
+</GUILayout>
+

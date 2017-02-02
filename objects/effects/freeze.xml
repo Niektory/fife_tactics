@@ -1,0 +1,13 @@
+<?fife type="object"?>
+<object blocking="0" id="freeze" namespace="tactics" static="0">
+	<action id="none">
+		<animation atlas="freeze.png" height="0" width="0" y_offset="0">
+			<direction delay="100" dir="0" frames="0"/>
+		</animation>
+	</action>
+	<action id="boom">
+		<animation atlas="freeze.png" height="64" width="64" y_offset="-12">
+			<direction delay="80" dir="0" frames="7"/>
+		</animation>
+	</action>
+</object>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout >
+    <Window Type="TaharezLook/FrameWindow" Name="Root" >
+        <Property Name="Text" Value="Online Help" />
+        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
+        <Property Name="TitlebarEnabled" Value="True" />
+        <Property Name="UnifiedAreaRect" Value="{{0.5,-181},{0.5,-150},{0.5,181},{0.5,150}}" />
+        <Property Name="Visible" Value="False" />
+        <Window Type="TaharezLook/Button" Name="BackButton" >
+            <Property Name="Text" Value="&lt;- Back" />
+            <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{0,115},{0,30}}" />
+			<Property Name="WantsMultiClickEvents" Value="False" />
+        </Window>
+        <Window Type="TaharezLook/Button" Name="ForwardButton" >
+            <Property Name="Text" Value="Forward -&gt;" />
+            <Property Name="UnifiedAreaRect" Value="{{0,120},{0,5},{0,230},{0,30}}" />
+			<Property Name="WantsMultiClickEvents" Value="False" />
+        </Window>
+        <Window Type="TaharezLook/Button" Name="HomeButton" >
+            <Property Name="Text" Value="Home" />
+            <Property Name="UnifiedAreaRect" Value="{{0,235},{0,5},{0,345},{0,30}}" />
+        </Window>
+        <Window Type="TaharezLook/StaticText" Name="Content" >
+            <Property Name="UnifiedAreaRect" Value="{{0,5},{0,35},{1,-5},{1,-5}}" />
+            <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="VertScrollbar" Value="True" />
+            <Property Name="FrameEnabled" Value="True" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object id="water_under" namespace="tactics" blocking="0" static="1">
+	<image source="water_under.png" direction="0" y_offset="7" />
+</object>

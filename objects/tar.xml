@@ -1,0 +1,13 @@
+<?fife type="object"?>
+<object blocking="0" id="tar" namespace="tactics" static="0">
+	<action id="tar">
+		<animation atlas="tar.png" height="32" width="63" y_offset="0">
+			<direction delay="10000" dir="0" frames="1"/>
+		</animation>
+	</action>
+	<action id="burn">
+		<animation atlas="tar_fire.png" height="32" width="63" y_offset="0">
+			<direction delay="200" dir="0" frames="2"/>
+		</animation>
+	</action>
+</object>

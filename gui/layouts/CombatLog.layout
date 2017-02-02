@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout >
+    <Window Type="TaharezLook/FrameWindow" Name="Root" >
+        <Property Name="Text" Value="Combat Log Mk II" />
+        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
+        <Property Name="TitlebarEnabled" Value="True" />
+        <Property Name="UnifiedAreaRect" Value="{{0,0},{1,-205},{0,500},{1,0}}" />
+        <Property Name="Visible" Value="False" />
+        <Window Type="TaharezLook/StaticText" Name="TextBox" >
+            <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{1,-5},{1,-5}}" />
+            <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
+            <Property Name="VertFormatting" Value="TopAligned" />
+            <Property Name="VertScrollbar" Value="True" />
+            <Property Name="FrameEnabled" Value="True" />
+        </Window>
+    </Window>
+</GUILayout>

@@ -1,0 +1,4 @@
+<?fife type="object"?>
+<object id="block_grass" namespace="tactics" blocking="0" static="1">
+	<image source="block_grass.png" direction="0" y_offset="6" />
+</object>

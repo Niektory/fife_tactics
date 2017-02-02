@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GUILayout >
+    <Window Type="TaharezLook/FrameWindow" Name="Root" >
+        <Property Name="Text" Value="Thinking..." />
+        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
+        <Property Name="TitlebarEnabled" Value="True" />
+        <Property Name="UnifiedMinSize" Value="{{0,0},{0,0}}" />
+        <Property Name="UnifiedAreaRect" Value="{{0.5,-150},{0,50},{0.5,150},{0,100}}" />
+        <Property Name="Visible" Value="False" />
+        <Window Type="TaharezLook/ProgressBar" Name="ProgressBar" >
+            <Property Name="CurrentProgress" Value="0" />
+            <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
+        </Window>
+    </Window>
+</GUILayout>
