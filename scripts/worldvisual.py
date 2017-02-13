@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from fife import fife
 from math import floor, ceil, atan, sqrt, tan, cos
@@ -115,5 +113,3 @@ class WorldVisual(object):
 		obj = self.findTile(instance)
 		if obj:
 			return obj
-
-

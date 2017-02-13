@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 import PyCEGUI
 
@@ -40,4 +38,3 @@ class GUITimeline:
 			self.items.append(PyCEGUI.ListboxTextItem(last_timer_name))
 			self.items[-1].setAutoDeleted(False)
 			self.list.addItem(self.items[-1])
-

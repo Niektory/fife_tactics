@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 class BattleCommand(object):
 	"""
@@ -14,4 +12,3 @@ class BattleCommand(object):
 		self.command = command
 		self.target = target
 		self.action = action
-

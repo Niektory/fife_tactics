@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from fife import fife
 from math import sqrt, pow, atan, tan, cos
@@ -224,5 +222,3 @@ class TacticsPather(fife.TimeEvent):
 	def fall(self, map_object, destination, speed):
 		new_route = FallRoute(map_object, destination, speed / 10.0)
 		self.routes.append(new_route)
-
-

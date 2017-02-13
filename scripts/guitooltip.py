@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 import PyCEGUI
 
@@ -54,4 +52,3 @@ class GUITooltip:
 		self.shadow2.setPosition(PyCEGUI.UVector2(PyCEGUI.UDim(0,x+9), PyCEGUI.UDim(0,y+20)))
 		self.shadow3.setPosition(PyCEGUI.UVector2(PyCEGUI.UDim(0,x+10), PyCEGUI.UDim(0,y+21)))
 		self.shadow4.setPosition(PyCEGUI.UVector2(PyCEGUI.UDim(0,x+10), PyCEGUI.UDim(0,y+19)))
-

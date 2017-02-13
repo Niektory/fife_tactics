@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 import serializer
 
@@ -33,4 +31,3 @@ class Replay(object):
 	def loadCommands(self):
 		self.commands = serializer.load("saves/replaycommands.replay")
 		self.current_command = 0
-

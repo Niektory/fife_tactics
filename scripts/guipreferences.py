@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 import PyCEGUI
 from fife import fife
@@ -251,4 +249,3 @@ class GUIPreferences:
 		self.keymap[fife.Key.DELETE] = PyCEGUI.Key.Delete
 
 		self.r_keymap = {v:k for k, v in self.keymap.items()}
-

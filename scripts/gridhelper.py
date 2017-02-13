@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 # this file contains a collection of helper functions for calculating grid positions etc.
 
@@ -219,4 +217,3 @@ def getObjectSurface(wall_type):
 def isDifficultSurface(surface):
 	# TODO: this data should be elsewhere
 	return (surface in ["Tar", "Water", "Ice"])
-

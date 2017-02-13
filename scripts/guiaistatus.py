@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 import PyCEGUI
 
@@ -14,4 +12,3 @@ class GUIAIStatus:
 		self.window.show()
 		self.window.moveToFront()
 		self.progress_bar.setProgress(0)
-

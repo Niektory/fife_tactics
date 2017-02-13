@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2012 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from fife import fife
 
@@ -29,7 +27,8 @@ class VisualLOS:
 	def destroy(self):
 		for instance in self.instances:
 			self.application.maplayer.deleteInstance(instance)
-		
+
+
 class Explosion(fife.InstanceActionListener):
 	def __init__(self, application, coords, effect_type):
 		fife.InstanceActionListener.__init__(self)

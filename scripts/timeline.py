@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 #from functools import total_ordering
 
@@ -78,4 +76,3 @@ class RealTimeline(fife.TimeEvent):
 				action()
 				#return #test
 		self.tick(time)
-

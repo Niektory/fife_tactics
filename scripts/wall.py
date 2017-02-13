@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from fife import fife
 
@@ -30,4 +28,3 @@ class WallVisual(object):
 			elif wall.type == "water":
 				self.instance.setCellStackPosition(110)
 				fife.InstanceVisual.create(self.instance).setStackPosition(110)
-

@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from random import uniform
 
@@ -175,5 +173,3 @@ class AI(object):
 		replay = Replay()
 		replay.commands = best_commands
 		pipe.send(replay)
-
-

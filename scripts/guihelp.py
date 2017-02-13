@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 import PyCEGUI
 
@@ -87,4 +85,3 @@ class GUIHelp:
 	def createPage(self, content):
 		self.pages[str(len(self.pages) + 1)] = content
 		return str(len(self.pages))
-

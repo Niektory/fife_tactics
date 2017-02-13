@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from fife import fife
 from random import randint
@@ -208,4 +206,3 @@ class TacticsCharacter(object):
 
 	def createVisual(self):
 		self.visual = CharacterVisual(self.world.application, self)
-

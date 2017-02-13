@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2012 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 import math
 
@@ -302,4 +300,3 @@ class TacticsView:
 	def pump(self):
 		self.animateCamera()
 		self.highlightInstances()
-		

@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from fife import fife
 from math import floor, ceil, atan, sqrt, tan, cos
@@ -500,4 +498,3 @@ class World(object):
 			if (character.cur_HP > 0) and not (character.team in teams):
 				teams.append(character.team)
 		return teams
-

@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from character import TacticsCharacter
 from tile import TacticsTile
@@ -274,4 +272,3 @@ class CombatActions(object):
 		for action in self.actions:
 			if action.name == name:
 				return action
-				

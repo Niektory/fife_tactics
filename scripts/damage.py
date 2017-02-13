@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 class DamagePacket:
 	def __init__(self, source, target, amount, dmg_type, add_effect = "none"):
@@ -17,4 +15,3 @@ class DamagePacket:
 			return "Attack details\n----------------\nSource: " + self.source + "\nTarget: " + self.target.name + "\nAttack strength: " + str(self.amount) + "\nDamage type: " + self.type + "\nTarget's " + self.type + " resistance: " + str(self.target.getResistance(self.type)) + "\nFinal damage: " + str(self.final_damage) + "\nAdditional effect: " + self.add_effect
 		else:
 			return "Attack details\n----------------\nSource: " + self.source.name + "\nTarget: " + self.target.name + "\nAttack strength: " + str(self.amount) + "\nDamage type: " + self.type + "\nTarget's " + self.type + " resistance: " + str(self.target.getResistance(self.type)) + "\nFinal damage: " + str(self.final_damage) + "\nAdditional effect: " + self.add_effect
-

@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2013 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from battlecommand import BattleCommand
 from replay import Replay
@@ -62,4 +60,3 @@ class BattleController(object):
 		if self.recording:
 			self.replay.addCommand(BattleCommand("endTurn"))
 		self.world.current_character_turn.endTurn()
-

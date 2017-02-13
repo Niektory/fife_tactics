@@ -1,7 +1,5 @@
-#!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
-# Copyright 2012 Tomasz "Niektóry" Turowski
+# Copyright 2017 Tomasz "Niektóry" Turowski
 
 from fife import fife
 
@@ -71,6 +69,7 @@ class TacticsMouseListener(fife.IMouseListener):
 			else:
 				self.application.view.moveCamera((self.middle_click_point.x - event.getX()) / 40.0, (self.middle_click_point.y - event.getY()) / 40.0)
 			self.middle_click_point = fife.ScreenPoint(event.getX(), event.getY())
+
 
 class TacticsKeyListener(fife.IKeyListener):
 	def __init__(self, application):
@@ -157,4 +156,3 @@ class TacticsKeyListener(fife.IKeyListener):
 			self.application.view.camera_move_key_left = False
 		elif key_val == fife.Key.RIGHT:
 			self.application.view.camera_move_key_right = False
-
