@@ -49,8 +49,7 @@ class TileVisual(object):
 		self.instance = self.application.maplayer.createInstance(self.application.model.getObject("tile", "tactics"), self.tile.coords)
 		self.instance.setCellStackPosition(115)
 		fife.InstanceVisual.create(self.instance).setStackPosition(115)
-		self.instance.act("transparent", True)
+		self.instance.actRepeat("transparent")
 		
 	def destroy(self):
 		self.application.maplayer.deleteInstance(self.instance)
-

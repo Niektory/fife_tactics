@@ -38,7 +38,7 @@ class Explosion(fife.InstanceActionListener):
 		self.instance.setCellStackPosition(125)
 		fife.InstanceVisual.create(self.instance).setStackPosition(125)
 		self.instance.addActionListener(self)
-		self.instance.act('boom')
+		self.instance.actOnce('boom')
 		self.application.addAnimation(self)
 
 #	def onInstanceActionFinished(self, instance, action):
@@ -52,9 +52,13 @@ class Explosion(fife.InstanceActionListener):
 
 	@LogExceptionDecorator
 	def onInstanceActionFinished(self, instance, action):
-		self.instance.act('none')
+		self.instance.actRepeat('none')
 		self.application.real_timeline.addTimer(TacticsTimer("explosion", 0, 1, self.destroy))
 		self.application.removeAnimation(self)
+
+	def onInstanceActionCancelled(self, instance, action):
+		return
+
 
 class Projectile(fife.InstanceActionListener):
 	def __init__(self, application, source, target, final_action, proj_type, trajectory):
@@ -87,3 +91,5 @@ class Projectile(fife.InstanceActionListener):
 		self.application.removeAnimation(self)
 		self.final_action()
 
+	def onInstanceActionCancelled(self, instance, action):
+		return

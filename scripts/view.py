@@ -211,11 +211,11 @@ class TacticsView:
 		for tile in self.application.world.tiles:
 			if self.application.current_character and not self.application.selected_action and not self.application.animating() and not self.application.replaying:
 				if tile.movement_cost <= self.application.current_character.cur_AP and tile.movement_cost > 0:
-					tile.visual.instance.act('movement', True)
+					tile.visual.instance.actRepeat('movement')
 				else:
-					tile.visual.instance.act('transparent', True)
+					tile.visual.instance.actRepeat('transparent')
 			else:
-				tile.visual.instance.act('transparent', True)
+				tile.visual.instance.actRepeat('transparent')
 
 		if (self.application.gui.context.getWindowContainingMouse().getName() == "_MasterRoot") \
 				and not self.application.animating() and not self.application.replaying:
@@ -269,15 +269,15 @@ class TacticsView:
 								path = self.application.current_character.planRoute(self.application.world.visual.findTile(instance))
 								if len(path) > 0:
 									for path_node in path[1:-1]:
-										path_node.visual.instance.act('path', True)
-									path[-1].visual.instance.act('blocked', True)
+										path_node.visual.instance.actRepeat('path')
+									path[-1].visual.instance.actRepeat('blocked')
 								# display route length in the tooltip
 								movement_cost = self.application.world.visual.findTile(instance).movement_cost
 								if movement_cost == 99:
 									self.application.gui.tooltip.printMessage("No movement possible")
 								else:
 									self.application.gui.tooltip.printMessage("Movement cost: " + str(movement_cost))
-						instance.act('selected', True)
+						instance.actRepeat('selected')
 				if self.application.selected_action:
 					# highlight area of effect
 					if instance.getObject().getId() in ["boy", "tile", "mushroom"]:
@@ -290,7 +290,7 @@ class TacticsView:
 										self.instance_renderer.addColored(target.visual.instance, 255, 210, 0, 128)
 										self.instance_renderer.addOutlined(target.visual.instance, 255, 210, 0, 1)
 								elif type(target) == TacticsTile:
-									target.visual.instance.act('selected', True)
+									target.visual.instance.actRepeat('selected')
 				break
 
 		# outline the selected character

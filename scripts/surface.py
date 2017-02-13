@@ -57,15 +57,15 @@ class TarVisual(object):
 		self.instance.setCellStackPosition(114)
 		fife.InstanceVisual.create(self.instance).setStackPosition(114)
 		if self.surface.fire_timer:
-			self.instance.act("burn", True)
+			self.instance.actRepeat("burn")
 		else:
-			self.instance.act("tar", True)
+			self.instance.actRepeat("tar")
 
 	def destroy(self):
 		self.application.maplayer.deleteInstance(self.instance)
 
 	def startBurning(self):
-		self.instance.act("burn", True)
+		self.instance.actRepeat("burn")
 		self.application.gui.combat_log.printMessage(self.surface.name + " caught fire.")
 
 	def burnOut(self):
@@ -73,7 +73,7 @@ class TarVisual(object):
 
 	def stopBurning(self):
 		self.application.gui.combat_log.printMessage(self.surface.name + " stopped burning.")
-		self.instance.act("tar", True)
+		self.instance.actRepeat("tar")
 
 
 class SurfaceIce(object):

@@ -40,16 +40,19 @@ class TacticsApplication(CEGUIApplicationBase, PychanApplicationBase):
 		super(TacticsApplication, self).__init__(settings)
 		self.settings = settings
 		self.model = self.engine.getModel()
-		self.mapLoader = fife.MapLoader(self.model, 
-									self.engine.getVFS(), 
-									self.engine.getImageManager(), 
-									self.engine.getRenderBackend())
-		self.objectLoader = fife.ObjectLoader(self.model, 
-									self.engine.getVFS(), 
-									self.engine.getImageManager())
-		self.atlasLoader = fife.AtlasLoader(self.model, 
-									self.engine.getVFS(), 
-									self.engine.getImageManager())
+		self.mapLoader = fife.MapLoader(self.model,
+			self.engine.getVFS(),
+			self.engine.getImageManager(),
+			self.engine.getRenderBackend())
+		self.objectLoader = fife.ObjectLoader(self.model,
+			self.engine.getVFS(),
+			self.engine.getImageManager(),
+			self.engine.getAnimationManager())
+		self.atlasLoader = fife.AtlasLoader(self.model,
+			self.engine.getVFS(),
+			self.engine.getImageManager(),
+			self.engine.getAnimationManager())
+
 		self.map = None
 		self.view = None
 

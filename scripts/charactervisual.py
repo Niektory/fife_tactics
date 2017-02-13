@@ -18,6 +18,10 @@ class CharacterListener(fife.InstanceActionListener):
 	def onInstanceActionFinished(self, instance, action):
 		self.character.onInstanceActionFinished(action)
 
+	def onInstanceActionCancelled(self, instance, action):
+		return
+
+
 class CharacterVisual(object):
 	"""Visual representation of a character."""
 	STATE_IDLE, STATE_RUN, STATE_ATTACK = xrange(3)
@@ -41,9 +45,9 @@ class CharacterVisual(object):
 		fife.InstanceVisual.create(self.fire).setStackPosition(125)
 
 		if character.freeze_timer:
-			self.fire.act('freeze', True)
+			self.fire.actRepeat('freeze')
 		elif character.fire_timer:
-			self.fire.act('burn', True)
+			self.fire.actRepeat('burn')
 
 		self.idle()
 
@@ -64,11 +68,11 @@ class CharacterVisual(object):
 		# change animation and shadow depending on whether we're in water or on land
 		if self.inWater():
 			if self.instance.getCurrentAction().getId() != "stand_water":
-				self.instance.act("stand_water", True)
-				self.shadow.act("ripples", True)
+				self.instance.actRepeat("stand_water")
+				self.shadow.actRepeat("ripples")
 		elif self.instance.getCurrentAction().getId() != "run":
-			self.instance.act("run", True)
-			self.shadow.act("shadow", True)
+			self.instance.actRepeat("run")
+			self.shadow.actRepeat("shadow")
 
 		# move shadows under characters and fire
 		self.shadow.setLocation(self.application.world.shadowLocation(next_loc))
@@ -84,17 +88,17 @@ class CharacterVisual(object):
 		self.application.removeAnimation(self)
 		self.state = self.STATE_IDLE
 		if self.character.tile.getSurface() == "Water":
-			self.instance.act("stand_water", True)
-			self.shadow.act("ripples", True)
+			self.instance.actRepeat("stand_water")
+			self.shadow.actRepeat("ripples")
 		else:
-			self.instance.act("stand", True)
-			self.shadow.act("shadow", True)
+			self.instance.actRepeat("stand")
+			self.shadow.actRepeat("shadow")
 
 	def run(self, route):
 		self.application.addAnimation(self)
 		self.state = self.STATE_RUN
 		if not self.inWater():
-			self.instance.act("run", True)
+			self.instance.actRepeat("run")
 		self.application.pather.move(self.character, route, 1)
 
 	def push(self, dest_tile):
@@ -107,7 +111,7 @@ class CharacterVisual(object):
 	def attack(self, target, attack_type, animation):
 		self.application.addAnimation(self)
 		self.state = self.STATE_ATTACK
-		self.instance.act(animation, target.visual.instance.getLocation())
+		self.instance.actOnce(animation, target.visual.instance.getLocation())
 		self.application.gui.sayBubble(self.instance, attack_type)
 
 	def beginTurn(self):
@@ -118,7 +122,7 @@ class CharacterVisual(object):
 		self.application.gui.combat_log.printMessage(self.character.name + "'s turn ended with " + str(self.character.cur_AP) + " spare AP.")
 
 	def die(self):
-		self.instance.act('dead', True)
+		self.instance.actRepeat('dead')
 		self.application.gui.sayBubble(self.instance, "I regret nothing!")
 		self.application.gui.combat_log.printMessage(self.character.name + " kicked the bucket.")
 		
@@ -140,21 +144,20 @@ class CharacterVisual(object):
 		self.application.gui.sayBubble(self.instance, char_msg)
 
 	def startBurning(self):
-		self.fire.act('burn', True)
+		self.fire.actRepeat('burn')
 		self.application.gui.combat_log.printMessage(self.character.name + " became a walking bonfire.")
 
 	def stopBurning(self):
-		self.fire.act('none', True)
+		self.fire.actRepeat('none')
 		self.application.gui.combat_log.printMessage(self.character.name + " stopped burning.")
 
 	def freeze(self):
-		self.fire.act('freeze', True)
+		self.fire.actRepeat('freeze')
 		self.application.gui.combat_log.printMessage(self.character.name + " became an icicle.")
 
 	def unfreeze(self):
-		self.fire.act('none', True)
+		self.fire.actRepeat('none')
 		self.application.gui.combat_log.printMessage(self.character.name + " unfroze.")
 
 	def fallDownTo(self, new_tile):
 		self.application.pather.fall(self.character, new_tile, 0)
-
