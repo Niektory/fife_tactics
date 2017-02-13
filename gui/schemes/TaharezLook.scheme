@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <GUIScheme version="5" name="TaharezLook">
 	<Imageset filename="TaharezLook.imageset" />
+	<Imageset filename="Background.imageset" />
 	<Font filename="Default.font" />
 	<LookNFeel filename="TaharezLook.looknfeel" />
 	<WindowRendererSet filename="CEGUICoreWindowRendererSet" />
