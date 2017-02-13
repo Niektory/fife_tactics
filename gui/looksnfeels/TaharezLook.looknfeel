@@ -376,6 +376,7 @@
         <PropertyDefinition name="SelectedTextColour" initialValue="FF000000" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="ActiveSelectionColour" initialValue="FF607FFF" redrawOnWrite="true" type="ColourRect"/>
         <PropertyDefinition name="InactiveSelectionColour" initialValue="FF808080" redrawOnWrite="true" type="ColourRect"/>
+        <PropertyDefinition name="HiddenData" initialValue="" redrawOnWrite="false" />
         <Property name="MouseCursorImage" value="TaharezLook/MouseTextBar" />
         <Property name="Size" value="{{0, 128}, {0, 32}}" />
         <NamedArea name="TextArea">
