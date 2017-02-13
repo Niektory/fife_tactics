@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="ascii" ?>
 <map id="empty_map" format="1.0">
-    <layer id="layer1" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="hexagonal" transparency="0" pathing="cell_edges_only" sorting="location" layer_type="walkable">
+    <layer id="layer1" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="hexagonal_axial" transparency="0" pathing="cell_edges_only" sorting="location" layer_type="walkable">
     </layer>
     <camera id="camera1" ref_layer_id="layer1" zoom="1.000000" tilt="-54.735610" rotation="210.000000" ztoy="16.000000" viewport="0,0,1024,768" ref_cell_width="64" ref_cell_height="32" />
 </map>

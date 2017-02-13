@@ -3,7 +3,7 @@
     <import file="../objects/block_gray.xml" />
     <import file="../objects/water.xml" />
     <import file="../objects/block_grass.xml" />
-    <layer id="layer1" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="hexagonal" transparency="0" pathing="cell_edges_only" sorting="location" layer_type="walkable">
+    <layer id="layer1" x_offset="0.000000" y_offset="0.000000" z_offset="0.000000" x_scale="1.000000" y_scale="1.000000" rotation="0.000000" grid_type="hexagonal_axial" transparency="0" pathing="cell_edges_only" sorting="location" layer_type="walkable">
         <instances>
             <i ns="tactics" o="water" x="0.000000" y="2.000000" z="0.000000" r="0" stackpos="0" />
             <i o="water" x="0.000000" y="-2.000000" z="0.000000" r="0" stackpos="0" />
