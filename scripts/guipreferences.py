@@ -4,6 +4,9 @@
 import PyCEGUI
 from fife import fife
 
+from error import LogExceptionDecorator
+
+@LogExceptionDecorator
 def closeWindow(args):
 	args.window.hide()
 
@@ -91,6 +94,7 @@ class GUIPreferences:
 		self.OK_button = self.window.getChild("Preferences/OKButton")
 		self.OK_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "savePreferences")
 
+	@LogExceptionDecorator
 	def savePreferences(self, args):
 		if self.enable_sound_checkbox.isSelected():
 			self.application.fifesoundmanager.setVolume(self.volume_slider.getScrollPosition()/10.0)
@@ -105,10 +109,12 @@ class GUIPreferences:
 		self.application.settings.saveSettings()
 		self.window.hide()
 
+	@LogExceptionDecorator
 	def show(self, args=None):
 		self.window.show()
 		self.window.moveToFront()
 
+	@LogExceptionDecorator
 	def hotkeyPressed(self, args):
 		for edit in self.hotkey_edits:
 			if str(args.scancode) == edit.getText():

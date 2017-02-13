@@ -3,6 +3,9 @@
 
 import PyCEGUI
 
+from error import LogExceptionDecorator
+
+@LogExceptionDecorator
 def propagateMouseWheel(args):
 	args.window.getParent().fireEvent(PyCEGUI.Window.EventMouseWheel, args)
 

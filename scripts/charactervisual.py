@@ -6,6 +6,7 @@ from fife import fife
 from timeline import TacticsTimer
 from damage import DamagePacket
 import gridhelper
+from error import LogExceptionDecorator
 
 class CharacterListener(fife.InstanceActionListener):
 	"""Receives fife events related to the character. Kept separate for serialization purposes."""
@@ -13,6 +14,7 @@ class CharacterListener(fife.InstanceActionListener):
 		fife.InstanceActionListener.__init__(self)
 		self.character = character
 
+	@LogExceptionDecorator
 	def onInstanceActionFinished(self, instance, action):
 		self.character.onInstanceActionFinished(action)
 

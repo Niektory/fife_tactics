@@ -3,6 +3,8 @@
 
 import PyCEGUI
 
+from error import LogExceptionDecorator
+
 class GUIActionMenu:
 	def __init__(self, application):
 		self.application = application
@@ -68,9 +70,10 @@ class GUIActionMenu:
 					button.hide()
 					button.setProperty("UnifiedSize", "{{0,0},{0,0}}")
 
+	@LogExceptionDecorator
 	def walk(self, args):
 		self.application.selected_action = None
 
+	@LogExceptionDecorator
 	def combatAction(self, args):
 		self.application.selectAction(args.window.getName()[13:])
-

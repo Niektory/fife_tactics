@@ -3,7 +3,6 @@
 
 import PyCEGUI
 from fife import fife
-from traceback import print_exc
 
 from bubble import SayBubble
 from guipreferences import GUIPreferences

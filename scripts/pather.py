@@ -6,7 +6,7 @@ from math import sqrt, pow, atan, tan, cos
 
 import gridhelper
 from character import TacticsCharacter
-
+from error import LogExceptionDecorator
 
 class ProjectileRoute:
 	def __init__(self, map_object, destination, speed, trajectory):
@@ -188,7 +188,8 @@ class TacticsPather(fife.TimeEvent):
 		super(TacticsPather, self).__init__(0)
 		self.application = application
 		self.routes = []
-		
+
+	@LogExceptionDecorator
 	def updateEvent(self, time):
 		if self.routes == []:
 			return

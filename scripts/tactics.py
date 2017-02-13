@@ -6,7 +6,6 @@ from fife.extensions.pychan.pychanbasicapplication import PychanApplicationBase
 from fife.extensions.cegui.ceguibasicapplication import CEGUIApplicationBase, CEGUIEventListener
 from fife.extensions.soundmanager import SoundManager
 import pickle
-from traceback import print_exc
 import cProfile
 from multiprocessing import Process, Pipe
 
@@ -26,6 +25,7 @@ import serializer
 from battlecontroller import BattleController
 from ai import AI
 from replay import Replay
+from error import LogExceptionDecorator
 
 class TacticsListener(CEGUIEventListener):
 	def __init__(self, app):
@@ -183,13 +183,10 @@ class TacticsApplication(CEGUIApplicationBase, PychanApplicationBase):
 		if self.current_character:
 			self.selected_action = self.combat_actions.getAction(action_name)
 
+	@LogExceptionDecorator
 	def endTurn(self, args):
-		try:
-			if self.world.current_character_turn:
-				self.battle_controller.endTurn()
-		except:
-			print_exc()
-			raise
+		if self.world.current_character_turn:
+			self.battle_controller.endTurn()
 
 	def addAnimation(self, animation):
 		self.animations.append(animation)

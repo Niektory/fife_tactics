@@ -3,8 +3,10 @@
 
 import PyCEGUI
 from os import listdir
-from traceback import print_exc
 
+from error import LogExceptionDecorator
+
+@LogExceptionDecorator
 def closeWindow(args):
 	args.window.hide()
 
@@ -27,6 +29,7 @@ class GUISaveLoad:
 		self.name_edit.subscribeEvent(PyCEGUI.Editbox.EventTextChanged, self, "selectItem")
 		self.ignore_selecting = False
 
+	@LogExceptionDecorator
 	def show(self, args=None):
 		self.window.show()
 		self.window.moveToFront()
@@ -35,56 +38,44 @@ class GUISaveLoad:
 		else:
 			self.save_button.hide()
 
+	@LogExceptionDecorator
 	def save(self, args):
-		try:
-			item = self.file_list.getFirstSelectedItem()
-			if item:
-				self.application.saveGame(item.getText())
-			elif len(self.name_edit.getText()) > 0:
-				self.application.saveGame(self.name_edit.getText())
-				self.addSaveToList(self.name_edit.getText())
-			self.window.hide()
-		except:
-			print_exc()
-			raise
+		item = self.file_list.getFirstSelectedItem()
+		if item:
+			self.application.saveGame(item.getText())
+		elif len(self.name_edit.getText()) > 0:
+			self.application.saveGame(self.name_edit.getText())
+			self.addSaveToList(self.name_edit.getText())
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def load(self, args):
-		try:
-			item = self.file_list.getFirstSelectedItem()
-			if item:
-				self.application.loadGame(item.getText())
-		except:
-			print_exc()
-			raise
+		item = self.file_list.getFirstSelectedItem()
+		if item:
+			self.application.loadGame(item.getText())
 
+	@LogExceptionDecorator
 	def selectItem(self, args):
-		try:
-			self.ignore_selecting = True
-			item = self.file_list.findItemWithText(self.name_edit.getText(), None)
-			if item:
-				self.file_list.setItemSelectState(item, True)
-			elif self.file_list.getFirstSelectedItem():
-				self.file_list.clearAllSelections()
-			self.ignore_selecting = False
-		except:
-			print_exc()
-			raise
+		self.ignore_selecting = True
+		item = self.file_list.findItemWithText(self.name_edit.getText(), None)
+		if item:
+			self.file_list.setItemSelectState(item, True)
+		elif self.file_list.getFirstSelectedItem():
+			self.file_list.clearAllSelections()
+		self.ignore_selecting = False
 
+	@LogExceptionDecorator
 	def fillEditBox(self, args):
-		try:
-			if not self.ignore_selecting:
-				item = self.file_list.getFirstSelectedItem()
-				if item:
-					self.name_edit.setText(item.getText())
-				else:
-					self.name_edit.setText("")
-		except:
-			print_exc()
-			raise
+		if self.ignore_selecting:
+			return
+		item = self.file_list.getFirstSelectedItem()
+		if item:
+			self.name_edit.setText(item.getText())
+		else:
+			self.name_edit.setText("")
 
 	def addSaveToList(self, save_name):
 		self.file_items.append(PyCEGUI.ListboxTextItem(save_name))
 		self.file_items[-1].setAutoDeleted(False)
 		self.file_items[-1].setSelectionBrushImage("TaharezLook", "MultiListSelectionBrush")
 		self.file_list.addItem(self.file_items[-1])
-

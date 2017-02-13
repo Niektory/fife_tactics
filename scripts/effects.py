@@ -5,6 +5,7 @@ from fife import fife
 
 from timeline import TacticsTimer
 import gridhelper
+from error import LogExceptionDecorator
 
 class VisualLOS:
 	def __init__(self, application):
@@ -49,6 +50,7 @@ class Explosion(fife.InstanceActionListener):
 		# FIXME: fife crashes when deleting many instances
 		return
 
+	@LogExceptionDecorator
 	def onInstanceActionFinished(self, instance, action):
 		self.instance.act('none')
 		self.application.real_timeline.addTimer(TacticsTimer("explosion", 0, 1, self.destroy))
@@ -79,6 +81,7 @@ class Projectile(fife.InstanceActionListener):
 	def destroy(self):
 		self.application.maplayer.deleteInstance(self.instance)
 
+	@LogExceptionDecorator
 	def onMoveFinished(self):
 		self.application.real_timeline.addTimer(TacticsTimer("projectile", 0, 1, self.destroy))
 		self.application.removeAnimation(self)

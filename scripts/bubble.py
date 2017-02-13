@@ -5,6 +5,7 @@ from fife import fife
 import PyCEGUI
 
 from timeline import TacticsTimer
+from error import LogExceptionDecorator
 
 class SayBubble(fife.InstanceDeleteListener):
 	def __init__(self, application, instance, text, time):
@@ -33,6 +34,6 @@ class SayBubble(fife.InstanceDeleteListener):
 		if self.application.real_timeline.timers.count(self.timer):
 			self.application.real_timeline.timers.remove(self.timer)
 
+	@LogExceptionDecorator
 	def onInstanceDeleted(self, instance):
 		self.destroy()
-

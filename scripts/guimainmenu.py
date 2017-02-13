@@ -2,8 +2,10 @@
 # Copyright 2017 Tomasz "Niektóry" Turowski
 
 import PyCEGUI
-from traceback import print_exc
 
+from error import LogExceptionDecorator
+
+@LogExceptionDecorator
 def closeWindow(args):
 	args.window.hide()
 
@@ -26,19 +28,14 @@ class GUIMainMenu:
 		self.window.show()
 		self.window.moveToFront()
 
+	@LogExceptionDecorator
 	def newGame(self, args):
-		try:
-			self.application.newGame()
-		except:
-			print_exc()
-			raise
+		self.application.newGame()
 
+	@LogExceptionDecorator
 	def quitGame(self, args):
-		try:
-			self.application.quit()
-		except:
-			print_exc()
-			raise
+		self.application.quit()
+
 
 class GUIGameMenu:
 	def __init__(self, application, gui):
@@ -60,37 +57,22 @@ class GUIGameMenu:
 		self.window.show()
 		self.window.moveToFront()
 
+	@LogExceptionDecorator
 	def help(self, args):
-		try:
+		self.gui.help.home()
+		self.window.hide()
 
-			self.gui.help.home()
-			self.window.hide()
-		except:
-			print_exc()
-			raise
-
+	@LogExceptionDecorator
 	def saveLoad(self, args):
-		try:
-			self.gui.save_load.show()
-			self.window.hide()
-		except:
-			print_exc()
-			raise
+		self.gui.save_load.show()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def preferences(self, args):
-		try:
-			self.gui.preferences.show()
-			self.window.hide()
-		except:
-			print_exc()
-			raise
+		self.gui.preferences.show()
+		self.window.hide()
 
+	@LogExceptionDecorator
 	def mainMenu(self, args):
-		try:
-			self.application.unloadMap()
-			self.gui.showMainMenu()
-		except:
-			print_exc()
-			raise
-
-
+		self.application.unloadMap()
+		self.gui.showMainMenu()

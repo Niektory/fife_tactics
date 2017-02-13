@@ -5,6 +5,8 @@
 
 from fife import fife
 
+from error import LogExceptionDecorator
+
 #@total_ordering
 class TacticsTimer:
 	def __init__(self, name, time, tick_speed, action, tick_action = None, tick_action_delay = 1):
@@ -65,7 +67,8 @@ class RealTimeline(fife.TimeEvent):
 	
 	def addTimer(self, timer):
 		self.timers.append(timer)
-	
+
+	@LogExceptionDecorator
 	def updateEvent(self, time):
 		if self.timers == []:
 			return None

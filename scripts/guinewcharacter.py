@@ -3,6 +3,9 @@
 
 import PyCEGUI
 
+from error import LogExceptionDecorator
+
+@LogExceptionDecorator
 def closeWindow(args):
 	args.window.hide()
 
@@ -33,17 +36,13 @@ class GUINewCharacter:
 		self.window.show()
 		self.window.moveToFront()
 
+	@LogExceptionDecorator
 	def modifyCharacter(self, args):
-		try:
-			character = self.application.world.addCharacterAt(self.new_character_tile, self.window.getChild("NewCharacter/NameEdit").getText())
-			character.team = int(self.window.getChild("NewCharacter/TeamEdit").getText())
-			character.max_AP = int(self.window.getChild("NewCharacter/APEdit").getText())
-			character.max_HP = character.cur_HP = int(self.window.getChild("NewCharacter/HPEdit").getText())
-			for checkbox in self.action_checkboxes:
-				if checkbox.isSelected():
-					character.addAction(self.application.combat_actions.getAction(checkbox.getName()[15:]))
-			self.window.hide()
-		except:
-			print_exc()
-			raise
-
+		character = self.application.world.addCharacterAt(self.new_character_tile, self.window.getChild("NewCharacter/NameEdit").getText())
+		character.team = int(self.window.getChild("NewCharacter/TeamEdit").getText())
+		character.max_AP = int(self.window.getChild("NewCharacter/APEdit").getText())
+		character.max_HP = character.cur_HP = int(self.window.getChild("NewCharacter/HPEdit").getText())
+		for checkbox in self.action_checkboxes:
+			if checkbox.isSelected():
+				character.addAction(self.application.combat_actions.getAction(checkbox.getName()[15:]))
+		self.window.hide()

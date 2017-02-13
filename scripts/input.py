@@ -3,12 +3,15 @@
 
 from fife import fife
 
+from error import LogExceptionDecorator
+
 class TacticsMouseListener(fife.IMouseListener):
 	def __init__(self, application):
 		self.application = application
 		fife.IMouseListener.__init__(self)
 		self.middle_click_point = None
-		
+
+	@LogExceptionDecorator
 	def mousePressed(self, event):
 		clickpoint = fife.ScreenPoint(event.getX(), event.getY())
 		
@@ -38,7 +41,8 @@ class TacticsMouseListener(fife.IMouseListener):
 						target = self.application.world.visual.findObject(instances[0])
 						if self.application.world.isValidTarget(self.application.current_character, target, self.application.selected_action.targeting_rules):
 							self.application.battle_controller.executeAction(self.application.selected_action, target)
-				
+
+	@LogExceptionDecorator
 	def mouseReleased(self, event):
 		if (event.getButton() == fife.MouseEvent.MIDDLE):
 			self.middle_click_point = None
@@ -55,13 +59,16 @@ class TacticsMouseListener(fife.IMouseListener):
 		
 	def mouseClicked(self, event):
 		pass
-		
+
+	@LogExceptionDecorator
 	def mouseWheelMovedUp(self, event):
 		self.application.view.zoomIn()
-		
+
+	@LogExceptionDecorator
 	def mouseWheelMovedDown(self, event):
 		self.application.view.zoomOut()
-		
+
+	@LogExceptionDecorator
 	def mouseDragged(self, event):
 		if self.middle_click_point:
 			if event.isControlPressed():
@@ -82,7 +89,8 @@ class TacticsKeyListener(fife.IKeyListener):
 			return int(self.application.settings.get("hotkeys", hotkey_name))
 		else:
 			return None
-		
+
+	@LogExceptionDecorator
 	def keyPressed(self, event):
 		key_val = event.getKey().getValue()
 
@@ -146,6 +154,7 @@ class TacticsKeyListener(fife.IKeyListener):
 					if (key_val == self.getHotkey(action.name)) and self.application.current_character.hasAction(action.name):
 						self.application.selectAction(action.name)
 
+	@LogExceptionDecorator
 	def keyReleased(self, event):
 		key_val = event.getKey().getValue()
 		if key_val == fife.Key.UP:

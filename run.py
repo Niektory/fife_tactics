@@ -2,16 +2,15 @@
 # -*- coding: utf-8 -*-
 # Copyright 2017 Tomasz "Niektóry" Turowski
 
-import sys, os
-from fife import fife
-from fife.extensions.pychan.fife_pychansettings import FifePychanSettings
-
-from scripts.tactics import TacticsApplication
-
-settings = FifePychanSettings(app_name="fife_tactics",
-              settings_file="./settings.xml", 
-              settings_gui_xml="")
+from scripts.error import LogException
 
 if __name__ == '__main__':
-	app = TacticsApplication(settings)
-	app.run()
+	with LogException():
+		from fife.extensions.pychan.fife_pychansettings import FifePychanSettings
+		from scripts.tactics import TacticsApplication
+		settings = FifePychanSettings(
+			app_name="fife_tactics",
+			settings_file="./settings.xml",
+			settings_gui_xml="")
+		application = TacticsApplication(settings)
+		application.run()
