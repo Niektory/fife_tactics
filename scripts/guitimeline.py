@@ -6,8 +6,8 @@ import PyCEGUI
 class GUITimeline:
 	def __init__(self, application):
 		self.application = application
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("Timeline.layout","Timeline/")
-		self.list = self.window.getChild("Timeline/TextBox")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("Timeline.layout")
+		self.list = self.window.getChild("TextBox")
 
 	def update(self):
 		self.list.resetList()
@@ -15,7 +15,7 @@ class GUITimeline:
 		if self.application.world.current_character_turn:
 			self.items.append(PyCEGUI.ListboxTextItem(self.application.world.current_character_turn.name + "'s turn (current)"))
 			self.items[-1].setAutoDeleted(False)
-			self.items[-1].setTextColours(PyCEGUI.colour(0xFFFFD000))
+			self.items[-1].setTextColours(PyCEGUI.Colour(0xFFFFD000))
 			self.list.addItem(self.items[-1])
 
 		last_timer_name = None

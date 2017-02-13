@@ -13,20 +13,20 @@ def closeWindow(args):
 class GUISaveLoad:
 	def __init__(self, application):
 		self.application = application
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("SaveLoad.layout","SaveLoad/")
-		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow, "")
-		self.file_list = PyCEGUI.WindowManager.getSingleton().getWindow("SaveLoad/Files")
-		self.file_list.subscribeEvent(PyCEGUI.Listbox.EventSelectionChanged, self, "fillEditBox")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("SaveLoad.layout")
+		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow)
+		self.file_list = self.window.getChild("Files")
+		self.file_list.subscribeEvent(PyCEGUI.Listbox.EventSelectionChanged, self.fillEditBox)
 		self.file_items = []
 		for file_name in listdir("saves"):
 			if file_name.endswith(".sav"):
 				self.addSaveToList(file_name[:-4])
-		self.save_button = self.window.getChild("SaveLoad/SaveButton")
-		self.save_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "save")
-		self.load_button = self.window.getChild("SaveLoad/LoadButton")
-		self.load_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "load")
-		self.name_edit = self.window.getChild("SaveLoad/NameEdit")
-		self.name_edit.subscribeEvent(PyCEGUI.Editbox.EventTextChanged, self, "selectItem")
+		self.save_button = self.window.getChild("SaveButton")
+		self.save_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.save)
+		self.load_button = self.window.getChild("LoadButton")
+		self.load_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.load)
+		self.name_edit = self.window.getChild("NameEdit")
+		self.name_edit.subscribeEvent(PyCEGUI.Editbox.EventTextChanged, self.selectItem)
 		self.ignore_selecting = False
 
 	@LogExceptionDecorator
@@ -77,5 +77,5 @@ class GUISaveLoad:
 	def addSaveToList(self, save_name):
 		self.file_items.append(PyCEGUI.ListboxTextItem(save_name))
 		self.file_items[-1].setAutoDeleted(False)
-		self.file_items[-1].setSelectionBrushImage("TaharezLook", "MultiListSelectionBrush")
+		self.file_items[-1].setSelectionBrushImage("TaharezLook/MultiListSelectionBrush")
 		self.file_list.addItem(self.file_items[-1])

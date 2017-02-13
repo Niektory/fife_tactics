@@ -13,16 +13,18 @@ class GUIMainMenu:
 	def __init__(self, application, gui):
 		self.application = application
 		self.gui = gui
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("MainMenu.layout","MainMenu/")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("MainMenu.layout")
 
-		self.new_game_button = PyCEGUI.WindowManager.getSingleton().getWindow("MainMenu/NewGameButton")
-		self.new_game_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "newGame")
-		self.preferences_button = PyCEGUI.WindowManager.getSingleton().getWindow("MainMenu/PreferencesButton")
-		self.preferences_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.gui.preferences, "show")
-		self.load_button = PyCEGUI.WindowManager.getSingleton().getWindow("MainMenu/LoadButton")
-		self.load_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.gui.save_load, "show")
-		self.quit_game_button = PyCEGUI.WindowManager.getSingleton().getWindow("MainMenu/QuitGameButton")
-		self.quit_game_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "quitGame")
+		self.new_game_button = self.window.getChild("MainMenu/NewGameButton")
+		self.new_game_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.newGame)
+		self.preferences_button = self.window.getChild("MainMenu/PreferencesButton")
+		self.preferences_button.subscribeEvent(
+					PyCEGUI.PushButton.EventClicked, self.gui.preferences.show)
+		self.load_button = self.window.getChild("MainMenu/LoadButton")
+		self.load_button.subscribeEvent(
+					PyCEGUI.PushButton.EventClicked, self.gui.save_load.show)
+		self.quit_game_button = self.window.getChild("MainMenu/QuitGameButton")
+		self.quit_game_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.quitGame)
 
 	def show(self):
 		self.window.show()
@@ -41,17 +43,17 @@ class GUIGameMenu:
 	def __init__(self, application, gui):
 		self.application = application
 		self.gui = gui
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("GameMenu.layout","GameMenu/")
-		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow, "")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("GameMenu.layout")
+		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow)
 
-		self.help_button = self.window.getChild("GameMenu/HelpButton")
-		self.help_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "help")
-		self.preferences_button = self.window.getChild("GameMenu/PreferencesButton")
-		self.preferences_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "preferences")
-		self.save_load_button = self.window.getChild("GameMenu/SaveLoadButton")
-		self.save_load_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "saveLoad")
-		self.main_menu_button = self.window.getChild("GameMenu/MainMenuButton")
-		self.main_menu_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "mainMenu")
+		self.help_button = self.window.getChild("HelpButton")
+		self.help_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.help)
+		self.preferences_button = self.window.getChild("PreferencesButton")
+		self.preferences_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.preferences)
+		self.save_load_button = self.window.getChild("SaveLoadButton")
+		self.save_load_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.saveLoad)
+		self.main_menu_button = self.window.getChild("MainMenuButton")
+		self.main_menu_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.mainMenu)
 
 	def show(self):
 		self.window.show()

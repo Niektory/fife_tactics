@@ -217,7 +217,8 @@ class TacticsView:
 			else:
 				tile.visual.instance.act('transparent', True)
 
-		if (PyCEGUI.System.getSingleton().getWindowContainingMouse().getName() == "_MasterRoot") and not self.application.animating() and not self.application.replaying:
+		if (self.application.gui.context.getWindowContainingMouse().getName() == "_MasterRoot") \
+				and not self.application.animating() and not self.application.replaying:
 			# on mouse over
 			ptx, pty = self.application.engine.getCursor().getPosition()
 			pt = fife.ScreenPoint(ptx, pty)

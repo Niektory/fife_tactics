@@ -19,33 +19,34 @@ class GUIPreferences:
 		self.resolution_items = []
 		self.initKeyMap()
 
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("Preferences.layout","Preferences/")
-		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow, "")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("Preferences.layout")
+		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow)
 
 		# add tabs for video, audio and controls
-		self.tab_control = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabControl")
-		self.page_video = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneVideo")
-		self.page_audio = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneAudio")
-		self.page_controls = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneControls")
-		self.page_controls_scrollable = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneControls/ScrollablePane")
+		self.tab_control = self.window.getChild("TabControl")
+		self.page_video = self.window.getChild("TabPaneVideo")
+		self.page_audio = self.window.getChild("TabPaneAudio")
+		self.page_controls = self.window.getChild("TabPaneControls")
+		self.page_controls_scrollable = self.page_controls.getChild("ScrollablePane")
 		self.tab_control.addTab(self.page_video)
 		self.tab_control.addTab(self.page_audio)
 		self.tab_control.addTab(self.page_controls)
 
 		# load video and audio settings
-		self.resolution_list = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneVideo/Resolutions")
+		self.resolution_list = self.page_video.getChild("Resolutions")
 		for resolution in self.application.settings._resolutions:
 			self.resolution_items.append(PyCEGUI.ListboxTextItem(resolution))
 			self.resolution_items[-1].setAutoDeleted(False)
-			self.resolution_items[-1].setSelectionBrushImage("TaharezLook", "MultiListSelectionBrush")
+			self.resolution_items[-1].setSelectionBrushImage(
+													"TaharezLook/MultiListSelectionBrush")
 			self.resolution_list.addItem(self.resolution_items[-1])
 			if resolution == self.application.settings.get("FIFE", "ScreenResolution"):
 				self.resolution_list.setItemSelectState(self.resolution_items[-1], True)
-		self.fullscreen_checkbox = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneVideo/Fullscreen")
+		self.fullscreen_checkbox = self.page_video.getChild("Fullscreen")
 		self.fullscreen_checkbox.setSelected(self.application.settings.get("FIFE", "FullScreen"))
-		self.enable_sound_checkbox = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneAudio/Enable")
+		self.enable_sound_checkbox = self.page_audio.getChild("Enable")
 		self.enable_sound_checkbox.setSelected(self.application.settings.get("FIFE", "PlaySounds"))
-		self.volume_slider = PyCEGUI.WindowManager.getSingleton().getWindow("Preferences/TabPaneAudio/VolumeSlider")
+		self.volume_slider = self.page_audio.getChild("VolumeSlider")
 		self.volume_slider.setScrollPosition(self.application.settings.get("FIFE", "InitialVolume"))
 
 		# load hotkey settings and create widgets for them
@@ -59,40 +60,40 @@ class GUIPreferences:
 		for action in self.hotkey_actions:
 			new_hotkey_label = PyCEGUI.WindowManager.getSingleton().createWindow("TaharezLook/StaticText", "HotkeyLabel/" + action)
 			new_hotkey_label.setProperty("Text", action)
-			new_hotkey_label.setProperty("UnifiedPosition", "{{0,10},{0," + str(vert_pos) + "}}")
+			new_hotkey_label.setProperty("Position", "{{0,10},{0," + str(vert_pos) + "}}")
 			new_hotkey_label.setProperty("FrameEnabled", "False")
 			new_hotkey_label.setProperty("BackgroundEnabled", "False")
 			new_hotkey_label.setProperty("VertFormatting", "TopAligned")
 
 			if action[1] == "-":
 				# just a separator label
-				new_hotkey_label.setProperty("UnifiedSize", "{{1,-20},{0,20}}")
+				new_hotkey_label.setProperty("Size", "{{1,-20},{0,20}}")
 				new_hotkey_label.setProperty("HorzFormatting", "HorzCentred")
 			else:
-				new_hotkey_label.setProperty("UnifiedSize", "{{0,140},{0,20}}")
+				new_hotkey_label.setProperty("Size", "{{0,140},{0,20}}")
 				new_hotkey_label.setProperty("HorzFormatting", "RightAligned")
 
 				new_hotkey_edit = PyCEGUI.WindowManager.getSingleton().createWindow("TaharezLook/Editbox", "HotkeyEdit/" + action)
 				if self.application.settings.get("hotkeys", action):
 					new_hotkey_edit.setProperty("Text", str(self.toCeguiKey(self.application.settings.get("hotkeys", action))))
 					new_hotkey_edit.setProperty("HiddenData", str(self.application.settings.get("hotkeys", action)))
-				new_hotkey_edit.setProperty("UnifiedSize", "{{1,-170},{0,28}}")
-				new_hotkey_edit.setProperty("UnifiedPosition", "{{0,160},{0," + str(vert_pos - 7) + "}}")
+				new_hotkey_edit.setProperty("Size", "{{1,-170},{0,28}}")
+				new_hotkey_edit.setProperty("Position", "{{0,160},{0," + str(vert_pos - 7) + "}}")
 				new_hotkey_edit.setProperty("TextParsingEnabled", "False")
 
-				new_hotkey_edit.subscribeEvent(PyCEGUI.Editbox.EventKeyDown, self, "hotkeyPressed")
-				new_hotkey_edit.subscribeEvent(PyCEGUI.Editbox.EventKeyUp, doNothing, "")
-				new_hotkey_edit.subscribeEvent(PyCEGUI.Editbox.EventCharacterKey, doNothing, "")
+				new_hotkey_edit.subscribeEvent(PyCEGUI.Editbox.EventKeyDown, self.hotkeyPressed)
+				new_hotkey_edit.subscribeEvent(PyCEGUI.Editbox.EventKeyUp, doNothing)
+				new_hotkey_edit.subscribeEvent(PyCEGUI.Editbox.EventCharacterKey, doNothing)
 
-				self.page_controls_scrollable.addChildWindow(new_hotkey_edit)
+				self.page_controls_scrollable.addChild(new_hotkey_edit)
 				self.hotkey_edits.append(new_hotkey_edit)
 				self.hotkey_labels.append(new_hotkey_label)
 
-			self.page_controls_scrollable.addChildWindow(new_hotkey_label)
+			self.page_controls_scrollable.addChild(new_hotkey_label)
 			vert_pos += 30
 
-		self.OK_button = self.window.getChild("Preferences/OKButton")
-		self.OK_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "savePreferences")
+		self.OK_button = self.window.getChild("OKButton")
+		self.OK_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.savePreferences)
 
 	@LogExceptionDecorator
 	def savePreferences(self, args):

@@ -17,16 +17,16 @@ class GUIHelp:
 		self.history_back = []
 		self.history_forward = []
 		self.current_address = "home"
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("Help.layout","Help/")
-		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow, "")
-		self.text = self.window.getChild("Help/Content")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("Help.layout")
+		self.window.subscribeEvent(PyCEGUI.FrameWindow.EventCloseClicked, closeWindow)
+		self.text = self.window.getChild("Content")
 
-		self.back_button = self.window.getChild("Help/BackButton")
-		self.back_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "back")
-		self.forward_button = self.window.getChild("Help/ForwardButton")
-		self.forward_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "forward")
-		self.home_button = self.window.getChild("Help/HomeButton")
-		self.home_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "home")
+		self.back_button = self.window.getChild("BackButton")
+		self.back_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.back)
+		self.forward_button = self.window.getChild("ForwardButton")
+		self.forward_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.forward)
+		self.home_button = self.window.getChild("HomeButton")
+		self.home_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.home)
 
 	@LogExceptionDecorator
 	def linkClicked(self, args):

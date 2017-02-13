@@ -6,11 +6,19 @@ import PyCEGUI
 class GUITooltip:
 	# TODO: merge the shadows with the main window
 	def __init__(self):
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("Tooltip.layout","Tooltip/")
-		self.shadow = self.window.clone("TooltipShadow")
-		self.shadow2 = self.window.clone("TooltipShadow2")
-		self.shadow3 = self.window.clone("TooltipShadow3")
-		self.shadow4 = self.window.clone("TooltipShadow4")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("Tooltip.layout")
+		#self.shadow = self.window.clone("TooltipShadow")
+		#self.shadow2 = self.window.clone("TooltipShadow2")
+		#self.shadow3 = self.window.clone("TooltipShadow3")
+		#self.shadow4 = self.window.clone("TooltipShadow4")
+		self.shadow = self.window.clone()
+		self.shadow.setName("TooltipShadow")
+		self.shadow2 = self.window.clone()
+		self.shadow2.setName("TooltipShadow2")
+		self.shadow3 = self.window.clone()
+		self.shadow3.setName("TooltipShadow3")
+		self.shadow4 = self.window.clone()
+		self.shadow4.setName("TooltipShadow4")
 
 	def clear(self):
 		self.window.setText("")
@@ -27,24 +35,24 @@ class GUITooltip:
 		self.shadow_messages = ""
 
 	def printMessage(self, message, color = ""):
-		if PyCEGUI.System.getSingleton().getWindowContainingMouse().getType() == "DefaultWindow":
-			self.window.show()
-			self.messages += (color + message + "\n")
-			self.window.setText(self.messages)
-			self.window.setProperty("UnifiedSize", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
-			self.shadow.show()
-			self.shadow_messages += (message + "\n")
-			self.shadow.setText("[colour='FF000000']" + self.shadow_messages)
-			self.shadow.setProperty("UnifiedSize", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
-			self.shadow2.show()
-			self.shadow2.setText("[colour='FF000000']" + self.shadow_messages)
-			self.shadow2.setProperty("UnifiedSize", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
-			self.shadow3.show()
-			self.shadow3.setText("[colour='FF000000']" + self.shadow_messages)
-			self.shadow3.setProperty("UnifiedSize", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
-			self.shadow4.show()
-			self.shadow4.setText("[colour='FF000000']" + self.shadow_messages)
-			self.shadow4.setProperty("UnifiedSize", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
+		#if PyCEGUI.System.getSingleton().getWindowContainingMouse().getType() == "DefaultWindow":
+		self.window.show()
+		self.messages += (color + message + "\n")
+		self.window.setText(self.messages)
+		self.window.setProperty("Size", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
+		self.shadow.show()
+		self.shadow_messages += (message + "\n")
+		self.shadow.setText("[colour='FF000000']" + self.shadow_messages)
+		self.shadow.setProperty("Size", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
+		self.shadow2.show()
+		self.shadow2.setText("[colour='FF000000']" + self.shadow_messages)
+		self.shadow2.setProperty("Size", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
+		self.shadow3.show()
+		self.shadow3.setText("[colour='FF000000']" + self.shadow_messages)
+		self.shadow3.setProperty("Size", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
+		self.shadow4.show()
+		self.shadow4.setText("[colour='FF000000']" + self.shadow_messages)
+		self.shadow4.setProperty("Size", "{{0," + self.window.getProperty("HorzExtent") + "},{0," + self.window.getProperty("VertExtent") + "}}")
 
 	def move(self, x, y):
 		self.window.setPosition(PyCEGUI.UVector2(PyCEGUI.UDim(0,x+10), PyCEGUI.UDim(0,y+20)))

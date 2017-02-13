@@ -17,14 +17,14 @@ class GUICombatLog:
 		self.last_message = ""
 		self.duplicate_count = 1
 		self.length_before_last = 0
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("CombatLog.layout","CombatLog/")
-		self.output = self.window.getChild("CombatLog/TextBox")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("CombatLog.layout")
+		self.output = self.window.getChild("TextBox")
 
 	def clear(self):
 		# scroll the log to the beginning (workaround)
 		args = PyCEGUI.MouseEventArgs(self.output)
 		args.wheelChange = 1000
-		self.output.fireEvent(PyCEGUI.GUISheet.EventMouseWheel, args)
+		#self.output.fireEvent(PyCEGUI.GUISheet.EventMouseWheel, args)
 
 		self.messages = ""
 		self.last_message = ""
@@ -32,7 +32,7 @@ class GUICombatLog:
 		self.length_before_last = 0
 		self.output.setText("")
 		for link in self.links:
-			self.output.removeChildWindow(link)
+			self.output.removeChild(link)
 
 	def printMessage(self, message):
 		if message == self.last_message:
@@ -47,17 +47,20 @@ class GUICombatLog:
 		# scroll the log to the end (workaround)
 		args = PyCEGUI.MouseEventArgs(self.output)
 		args.wheelChange = -1000
-		self.output.fireEvent(PyCEGUI.GUISheet.EventMouseWheel, args)
+		#self.output.fireEvent(PyCEGUI.GUISheet.EventMouseWheel, args)
 
 	def createLink(self, message, address):
-		new_link = PyCEGUI.WindowManager.getSingleton().createWindow("TaharezLook/StaticText", "Link/" + str(len(self.links) + 1) + "=" + address)
-		new_link.setProperty("Text", "[colour='FF00A0FF']" + message)
+		new_link = PyCEGUI.WindowManager.getSingleton().createWindow(
+					"TaharezLook/StaticText", "Link-{}={}".format(len(self.links) + 1, address))
+		new_link.setProperty("Text", "[colour='FF00A0FF']{}".format(message))
 		new_link.setProperty("FrameEnabled", "False")
-		new_link.setProperty("UnifiedSize", "{{0," + new_link.getProperty("HorzExtent") + "},{0," + new_link.getProperty("VertExtent") + "}}")
-		self.output.addChildWindow(new_link)
+		#new_link.setProperty("Size", "{{0," + new_link.getProperty("HorzExtent") + "},{0,"
+		#			+ new_link.getProperty("VertExtent") + "}}")
+		new_link.setProperty("Size", "{{{{0,{}}},{{0,{}}}}}".format(
+						new_link.getProperty("HorzExtent"), new_link.getProperty("VertExtent")))
+		self.output.addChild(new_link)
 		#self.output.setText(self.messages)
-		new_link.subscribeEvent(PyCEGUI.Window.EventMouseClick, self.help, "linkClicked")
-		new_link.subscribeEvent(PyCEGUI.Window.EventMouseWheel, propagateMouseWheel, "")
+		new_link.subscribeEvent(PyCEGUI.Window.EventMouseClick, self.help.linkClicked)
+		new_link.subscribeEvent(PyCEGUI.Window.EventMouseWheel, propagateMouseWheel)
 		self.links.append(new_link)
-		return "[window='Link/" + str(len(self.links)) + "=" + address + "']"
-
+		return "[window='Link-{}={}']".format(len(self.links), address)

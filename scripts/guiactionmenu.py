@@ -8,22 +8,22 @@ from error import LogExceptionDecorator
 class GUIActionMenu:
 	def __init__(self, application):
 		self.application = application
-		self.window = PyCEGUI.WindowManager.getSingleton().loadWindowLayout("ActionMenu.layout","ActionMenu/")
-		self.text_box = self.window.getChild("ActionMenu/TextBox")
-		self.action_button_list = self.window.getChild("ActionMenu/ButtonList")
+		self.window = PyCEGUI.WindowManager.getSingleton().loadLayoutFromFile("ActionMenu.layout")
+		self.text_box = self.window.getChild("TextBox")
+		self.action_button_list = self.window.getChild("ButtonList")
 
-		self.walk_button = self.window.getChild("ActionMenu/WalkButton")
-		self.walk_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "walk")
-		self.end_turn_button = self.window.getChild("ActionMenu/EndTurnButton")
-		self.end_turn_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.application, "endTurn")
+		self.walk_button = self.window.getChild("WalkButton")
+		self.walk_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.walk)
+		self.end_turn_button = self.window.getChild("EndTurnButton")
+		self.end_turn_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.application.endTurn)
 
 		self.action_buttons = []
 		for action in self.application.combat_actions.actions:
 			new_button = PyCEGUI.WindowManager.getSingleton().createWindow("TaharezLook/Button", "ActionButton/" + action.name)
 			new_button.setProperty("Text", action.name)
-			new_button.setProperty("UnifiedSize", "{{1,-10},{0,25}}")
-			self.action_button_list.addChildWindow(new_button)
-			new_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self, "combatAction")
+			new_button.setProperty("Size", "{{1,-10},{0,25}}")
+			self.action_button_list.addChild(new_button)
+			new_button.subscribeEvent(PyCEGUI.PushButton.EventClicked, self.combatAction)
 			new_button.hide()
 			self.action_buttons.append(new_button)
 
@@ -60,15 +60,15 @@ class GUIActionMenu:
 			for button in self.action_buttons:
 				if self.application.current_character.hasAction(button.getName()[13:]):
 					button.show()
-					button.setProperty("UnifiedSize", "{{1,-10},{0,25}}")
+					button.setProperty("Size", "{{1,-10},{0,25}}")
 				else:
 					button.hide()
-					button.setProperty("UnifiedSize", "{{0,0},{0,0}}")
+					button.setProperty("Size", "{{0,0},{0,0}}")
 		else:
 			self.walk_button.hide()
 			for button in self.action_buttons:
 					button.hide()
-					button.setProperty("UnifiedSize", "{{0,0},{0,0}}")
+					button.setProperty("Size", "{{0,0},{0,0}}")
 
 	@LogExceptionDecorator
 	def walk(self, args):

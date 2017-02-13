@@ -17,15 +17,15 @@ class SayBubble(fife.InstanceDeleteListener):
 		self.application.real_timeline.addTimer(self.timer)
 		self.instance.addDeleteListener(self)
 		self.bubble = PyCEGUI.WindowManager.getSingleton().createWindow("TaharezLook/StaticText", "SayBubble/" + str(self.instance.getFifeId()))
-		self.application.gui.root.addChildWindow(self.bubble)
+		self.application.gui.root.addChild(self.bubble)
 		self.bubble.setText(text)
-		self.bubble.setProperty("UnifiedSize", "{{0," + self.bubble.getProperty("HorzExtent") + "},{0," + self.bubble.getProperty("VertExtent") + "}}")
+		self.bubble.setProperty("Size", "{{0," + self.bubble.getProperty("HorzExtent") + "},{0," + self.bubble.getProperty("VertExtent") + "}}")
 		self.bubble.setProperty("FrameEnabled", "False")
 		self.bubble.setProperty("BackgroundEnabled", "False")
 
 	def adjustPosition(self):
 		coords = self.application.camera.toScreenCoordinates(self.instance.getLocation().getMapCoordinates())
-		self.bubble.setProperty("UnifiedPosition", "{{0," + str(coords.x) + "},{0," + str(coords.y) + "}}")
+		self.bubble.setProperty("Position", "{{0," + str(coords.x) + "},{0," + str(coords.y) + "}}")
 
 	def destroy(self):
 		PyCEGUI.WindowManager.getSingleton().destroyWindow("SayBubble/" + str(self.instance.getFifeId()))
