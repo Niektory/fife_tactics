@@ -1,31 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GUILayout >
-    <Window Type="TaharezLook/StaticImage" Name="Background" >
-        <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{1,0},{1,0}}" />
-	    <Property Name="Image" Value="set:Background image:full_image" />
-	    <Property Name="HorzFormatting" Value="CentreAligned" />
-	    <Property Name="VertFormatting" Value="CentreAligned" />
-		<Window Type="TaharezLook/FrameWindow" Name="Root" >
-		    <Property Name="Text" Value="Main Menu" />
-		    <Property Name="TitlebarFont" Value="DejaVuSans-10" />
-		    <Property Name="TitlebarEnabled" Value="True" />
-		    <Property Name="UnifiedAreaRect" Value="{{0.5,-90},{0.5,-75},{0.5,90},{0.5,75}}" />
-		    <Window Type="TaharezLook/Button" Name="NewGameButton" >
-		        <Property Name="Text" Value="New Game" />
-		        <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{1,-5},{0,30}}" />
-		    </Window>
-			<Window Type="TaharezLook/Button" Name="LoadButton" >
-			    <Property Name="Text" Value="Load Game" />
-			    <Property Name="UnifiedAreaRect" Value="{{0,5},{0,35},{1,-5},{0,60}}" />
+<GUILayout version="4">
+	<Window type="TaharezLook/StaticImage" name="Background" >
+		<Property name="Area" value="{{0,0},{0,0},{1,0},{1,0}}" />
+		<Property name="Image" value="Background/full_image" />
+		<Property name="HorzFormatting" value="CentreAligned" />
+		<Property name="VertFormatting" value="CentreAligned" />
+		<Window type="TaharezLook/FrameWindow" name="MainMenu" >
+			<Property name="Text" value="Main Menu" />
+			<Property name="TitlebarEnabled" value="True" />
+			<Property name="Area" value="{{0.5,-90},{0.5,-75},{0.5,90},{0.5,75}}" />
+			<Window type="TaharezLook/Button" name="NewGameButton" >
+				<Property name="Text" value="New Game" />
+				<Property name="Area" value="{{0,5},{0,5},{1,-5},{0,30}}" />
 			</Window>
-		    <Window Type="TaharezLook/Button" Name="PreferencesButton" >
-		        <Property Name="Text" Value="Preferences" />
-		        <Property Name="UnifiedAreaRect" Value="{{0,5},{0,65},{1,-5},{0,90}}" />
-		    </Window>
-		    <Window Type="TaharezLook/Button" Name="QuitGameButton" >
-		        <Property Name="Text" Value="Quit Game" />
-		        <Property Name="UnifiedAreaRect" Value="{{0,5},{0,95},{1,-5},{0,120}}" />
-		    </Window>
+			<Window type="TaharezLook/Button" name="LoadButton" >
+				<Property name="Text" value="Load Game" />
+				<Property name="Area" value="{{0,5},{0,35},{1,-5},{0,60}}" />
+			</Window>
+			<Window type="TaharezLook/Button" name="PreferencesButton" >
+				<Property name="Text" value="Preferences" />
+				<Property name="Area" value="{{0,5},{0,65},{1,-5},{0,90}}" />
+			</Window>
+			<Window type="TaharezLook/Button" name="QuitGameButton" >
+				<Property name="Text" value="Quit Game" />
+				<Property name="Area" value="{{0,5},{0,95},{1,-5},{0,120}}" />
+			</Window>
 		</Window>
-    </Window>
+	</Window>
 </GUILayout>

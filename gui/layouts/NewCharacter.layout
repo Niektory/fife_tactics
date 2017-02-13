@@ -1,80 +1,79 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GUILayout >
-    <Window Type="TaharezLook/FrameWindow" Name="Root" >
-        <Property Name="Text" Value="Komplex Karacter Kreator" />
-        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
-        <Property Name="TitlebarEnabled" Value="True" />
-        <Property Name="UnifiedAreaRect" Value="{{0.5,-150},{0.5,-190},{0.5,150},{0.5,190}}" />
-        <Property Name="Visible" Value="False" />
-        <Window Type="TaharezLook/StaticText" Name="NameLabel" >
-            <Property Name="Text" Value="Name" />
-            <Property Name="UnifiedPosition" Value="{{0,20},{0,20}}" />
-            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
-            <Property Name="FrameEnabled" Value="False" />
-            <Property Name="BackgroundEnabled" Value="False" />
-            <Property Name="VertFormatting" Value="TopAligned" />
-            <Property Name="HorzFormatting" Value="RightAligned" />
+<GUILayout version="4">
+	<Window type="TaharezLook/FrameWindow" name="NewCharacter" >
+		<Property name="Text" value="Komplex Karacter Kreator" />
+		<Property name="TitlebarEnabled" value="True" />
+		<Property name="Area" value="{{0.5,-150},{0.5,-190},{0.5,150},{0.5,190}}" />
+		<Property name="Visible" value="False" />
+		<Window type="TaharezLook/StaticText" name="NameLabel" >
+			<Property name="Text" value="name" />
+			<Property name="Position" value="{{0,20},{0,20}}" />
+			<Property name="Size" value="{{0,40},{0,20}}" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+			<Property name="VertFormatting" value="TopAligned" />
+			<Property name="HorzFormatting" value="RightAligned" />
 		</Window>
-        <Window Type="TaharezLook/StaticText" Name="APLabel" >
-            <Property Name="Text" Value="AP" />
-            <Property Name="UnifiedPosition" Value="{{0,20},{0,50}}" />
-            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
-            <Property Name="FrameEnabled" Value="False" />
-            <Property Name="BackgroundEnabled" Value="False" />
-            <Property Name="VertFormatting" Value="TopAligned" />
-            <Property Name="HorzFormatting" Value="RightAligned" />
+		<Window type="TaharezLook/StaticText" name="APLabel" >
+			<Property name="Text" value="AP" />
+			<Property name="Position" value="{{0,20},{0,50}}" />
+			<Property name="Size" value="{{0,40},{0,20}}" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+			<Property name="VertFormatting" value="TopAligned" />
+			<Property name="HorzFormatting" value="RightAligned" />
 		</Window>
-        <Window Type="TaharezLook/StaticText" Name="HPLabel" >
-            <Property Name="Text" Value="HP" />
-            <Property Name="UnifiedPosition" Value="{{0,20},{0,80}}" />
-            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
-            <Property Name="FrameEnabled" Value="False" />
-            <Property Name="BackgroundEnabled" Value="False" />
-            <Property Name="VertFormatting" Value="TopAligned" />
-            <Property Name="HorzFormatting" Value="RightAligned" />
+		<Window type="TaharezLook/StaticText" name="HPLabel" >
+			<Property name="Text" value="HP" />
+			<Property name="Position" value="{{0,20},{0,80}}" />
+			<Property name="Size" value="{{0,40},{0,20}}" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+			<Property name="VertFormatting" value="TopAligned" />
+			<Property name="HorzFormatting" value="RightAligned" />
 		</Window>
-        <Window Type="TaharezLook/StaticText" Name="TeamLabel" >
-            <Property Name="Text" Value="Team" />
-            <Property Name="UnifiedPosition" Value="{{0,20},{0,110}}" />
-            <Property Name="UnifiedSize" Value="{{0,40},{0,20}}" />
-            <Property Name="FrameEnabled" Value="False" />
-            <Property Name="BackgroundEnabled" Value="False" />
-            <Property Name="VertFormatting" Value="TopAligned" />
-            <Property Name="HorzFormatting" Value="RightAligned" />
+		<Window type="TaharezLook/StaticText" name="TeamLabel" >
+			<Property name="Text" value="Team" />
+			<Property name="Position" value="{{0,20},{0,110}}" />
+			<Property name="Size" value="{{0,40},{0,20}}" />
+			<Property name="FrameEnabled" value="False" />
+			<Property name="BackgroundEnabled" value="False" />
+			<Property name="VertFormatting" value="TopAligned" />
+			<Property name="HorzFormatting" value="RightAligned" />
 		</Window>
-        <Window Type="TaharezLook/Editbox" Name="NameEdit" >
-            <Property Name="MaxTextLength" Value="30" />
-            <Property Name="UnifiedPosition" Value="{{0,70},{0,13}}" />
-            <Property Name="UnifiedSize" Value="{{0,200},{0,28}}" />
-            <Property Name="TextParsingEnabled" Value="False" />
-        </Window>
-        <Window Type="TaharezLook/Editbox" Name="APEdit" >
-            <Property Name="Text" Value="6" />
-            <Property Name="MaxTextLength" Value="2" />
-            <Property Name="UnifiedPosition" Value="{{0,70},{0,43}}" />
-            <Property Name="UnifiedSize" Value="{{0,50},{0,28}}" />
-            <Property Name="TextParsingEnabled" Value="False" />
-            <Property Name="ValidationString" Value="[[:digit:]]*" />
-        </Window>
-        <Window Type="TaharezLook/Editbox" Name="HPEdit" >
-            <Property Name="Text" Value="20" />
-            <Property Name="MaxTextLength" Value="2" />
-            <Property Name="UnifiedPosition" Value="{{0,70},{0,73}}" />
-            <Property Name="UnifiedSize" Value="{{0,50},{0,28}}" />
-            <Property Name="TextParsingEnabled" Value="False" />
-            <Property Name="ValidationString" Value="[[:digit:]]*" />
-        </Window>
-        <Window Type="TaharezLook/Editbox" Name="TeamEdit" >
-            <Property Name="Text" Value="0" />
-            <Property Name="MaxTextLength" Value="2" />
-            <Property Name="UnifiedPosition" Value="{{0,70},{0,103}}" />
-            <Property Name="UnifiedSize" Value="{{0,50},{0,28}}" />
-            <Property Name="TextParsingEnabled" Value="False" />
-            <Property Name="ValidationString" Value="[[:digit:]]*" />
-        </Window>
-        <Window Type="TaharezLook/Button" Name="OKButton" >
-            <Property Name="Text" Value="OK" />
-            <Property Name="UnifiedAreaRect" Value="{{1,-90},{1,-40},{1,-20},{1,-15}}" />
-        </Window>
-    </Window>
+		<Window type="TaharezLook/Editbox" name="NameEdit" >
+			<Property name="MaxTextLength" value="30" />
+			<Property name="Position" value="{{0,70},{0,13}}" />
+			<Property name="Size" value="{{0,200},{0,28}}" />
+			<Property name="TextParsingEnabled" value="False" />
+		</Window>
+		<Window type="TaharezLook/Editbox" name="APEdit" >
+			<Property name="Text" value="6" />
+			<Property name="MaxTextLength" value="2" />
+			<Property name="Position" value="{{0,70},{0,43}}" />
+			<Property name="Size" value="{{0,50},{0,28}}" />
+			<Property name="TextParsingEnabled" value="False" />
+			<Property name="ValidationString" value="[[:digit:]]*" />
+		</Window>
+		<Window type="TaharezLook/Editbox" name="HPEdit" >
+			<Property name="Text" value="20" />
+			<Property name="MaxTextLength" value="2" />
+			<Property name="Position" value="{{0,70},{0,73}}" />
+			<Property name="Size" value="{{0,50},{0,28}}" />
+			<Property name="TextParsingEnabled" value="False" />
+			<Property name="ValidationString" value="[[:digit:]]*" />
+		</Window>
+		<Window type="TaharezLook/Editbox" name="TeamEdit" >
+			<Property name="Text" value="0" />
+			<Property name="MaxTextLength" value="2" />
+			<Property name="Position" value="{{0,70},{0,103}}" />
+			<Property name="Size" value="{{0,50},{0,28}}" />
+			<Property name="TextParsingEnabled" value="False" />
+			<Property name="ValidationString" value="[[:digit:]]*" />
+		</Window>
+		<Window type="TaharezLook/Button" name="OKButton" >
+			<Property name="Text" value="OK" />
+			<Property name="Area" value="{{1,-90},{1,-40},{1,-20},{1,-15}}" />
+		</Window>
+	</Window>
 </GUILayout>

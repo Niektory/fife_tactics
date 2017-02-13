@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GUILayout >
-    <Window Type="TaharezLook/StaticText" Name="TooltipRoot" >
-        <Property Name="UnifiedAreaRect" Value="{{0,0},{0,0},{0,220},{0,90}}" />
-        <Property Name="FrameEnabled" Value="False" />
-        <Property Name="BackgroundEnabled" Value="True" />
-		<Property Name="BackgroundColours" Value="tl:10000000 tr:10000000 bl:10000000 br:10000000"/> 
-        <Property Name="Visible" Value="False" />
-    </Window>
+<GUILayout version="4">
+	<Window type="TaharezLook/StaticText" name="TooltipRoot" >
+		<Property name="Area" value="{{0,0},{0,0},{0,220},{0,90}}" />
+		<Property name="FrameEnabled" value="False" />
+		<Property name="BackgroundEnabled" value="True" />
+		<Property name="BackgroundColours" value="tl:10000000 tr:10000000 bl:10000000 br:10000000"/>
+		<Property name="Visible" value="False" />
+	</Window>
 </GUILayout>

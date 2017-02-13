@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GUILayout >
-    <Window Type="TaharezLook/FrameWindow" Name="Root" >
-        <Property Name="Text" Value="Combat Log Mk II" />
-        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
-        <Property Name="TitlebarEnabled" Value="True" />
-        <Property Name="UnifiedAreaRect" Value="{{0,0},{1,-205},{0,500},{1,0}}" />
-        <Property Name="Visible" Value="False" />
-        <Window Type="TaharezLook/StaticText" Name="TextBox" >
-            <Property Name="UnifiedAreaRect" Value="{{0,5},{0,5},{1,-5},{1,-5}}" />
-            <Property Name="HorzFormatting" Value="WordWrapLeftAligned" />
-            <Property Name="VertFormatting" Value="TopAligned" />
-            <Property Name="VertScrollbar" Value="True" />
-            <Property Name="FrameEnabled" Value="True" />
-        </Window>
-    </Window>
+<GUILayout version="4">
+	<Window type="TaharezLook/FrameWindow" name="CombatLog" >
+		<Property name="Text" value="Combat Log Mk II" />
+		<Property name="TitlebarEnabled" value="True" />
+		<Property name="Area" value="{{0,0},{1,-205},{0,500},{1,0}}" />
+		<Property name="Visible" value="False" />
+		<Window type="TaharezLook/StaticText" name="TextBox" >
+			<Property name="Area" value="{{0,5},{0,5},{1,-5},{1,-5}}" />
+			<Property name="HorzFormatting" value="WordWrapLeftAligned" />
+			<Property name="VertFormatting" value="TopAligned" />
+			<Property name="VertScrollbar" value="True" />
+			<Property name="FrameEnabled" value="True" />
+		</Window>
+	</Window>
 </GUILayout>

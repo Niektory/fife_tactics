@@ -1,30 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<GUILayout >
-    <Window Type="TaharezLook/FrameWindow" Name="Root" >
-        <Property Name="Text" Value="Save/Load Game" />
-        <Property Name="TitlebarFont" Value="DejaVuSans-10" />
-        <Property Name="TitlebarEnabled" Value="True" />
-        <Property Name="UnifiedAreaRect" Value="{{0.5,-150},{0.5,-225},{0.5,150},{0.5,225}}" />
-        <Property Name="Visible" Value="False" />
+<GUILayout version="4">
+	<Window type="TaharezLook/FrameWindow" name="Root" >
+		<Property name="Text" value="Save/Load Game" />
+		<Property name="TitlebarEnabled" value="True" />
+		<Property name="Area" value="{{0.5,-150},{0.5,-225},{0.5,150},{0.5,225}}" />
+		<Property name="Visible" value="False" />
 
-        <Window Type="TaharezLook/Editbox" Name="NameEdit" >
-            <Property Name="MaxTextLength" Value="30" />
-            <Property Name="UnifiedPosition" Value="{{0,5},{0,5}}" />
-            <Property Name="UnifiedSize" Value="{{1,-10},{0,28}}" />
-            <Property Name="TextParsingEnabled" Value="False" />
-            <Property Name="ValidationString" Value="[[:alnum:][:blank:]-_+()!,]*" />
-        </Window>
-        <Window Type="TaharezLook/Listbox" Name="Files" >
-            <Property Name="UnifiedAreaRect" Value="{{0,5},{0,35},{1,-5},{1,-45}}" />
-        </Window>
+		<Window type="TaharezLook/Editbox" name="NameEdit" >
+			<Property name="MaxTextLength" value="30" />
+			<Property name="Position" value="{{0,5},{0,5}}" />
+			<Property name="Size" value="{{1,-10},{0,28}}" />
+			<Property name="TextParsingEnabled" value="False" />
+			<Property name="ValidationString" value="[[:alnum:][:blank:]-_+()!,]*" />
+		</Window>
+		<Window type="TaharezLook/Listbox" name="Files" >
+			<Property name="Area" value="{{0,5},{0,35},{1,-5},{1,-45}}" />
+		</Window>
 
-        <Window Type="TaharezLook/Button" Name="SaveButton" >
-            <Property Name="Text" Value="Save" />
-            <Property Name="UnifiedAreaRect" Value="{{1,-165},{1,-35},{1,-95},{1,-10}}" />
-        </Window>
-        <Window Type="TaharezLook/Button" Name="LoadButton" >
-            <Property Name="Text" Value="Load" />
-            <Property Name="UnifiedAreaRect" Value="{{1,-85},{1,-35},{1,-15},{1,-10}}" />
-        </Window>
-    </Window>
+		<Window type="TaharezLook/Button" name="SaveButton" >
+			<Property name="Text" value="Save" />
+			<Property name="Area" value="{{1,-165},{1,-35},{1,-95},{1,-10}}" />
+		</Window>
+		<Window type="TaharezLook/Button" name="LoadButton" >
+			<Property name="Text" value="Load" />
+			<Property name="Area" value="{{1,-85},{1,-35},{1,-15},{1,-10}}" />
+		</Window>
+	</Window>
 </GUILayout>
