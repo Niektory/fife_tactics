@@ -1,28 +1,30 @@
-<?fife type="object"?>
-<object id="tile" namespace="tactics" blocking="0" static="1">
-	<action id="transparent">
-		<animation atlas="tile_transparent.png" height="32" width="64">
-			<direction delay="10000" dir="0" frames="1" />
-		</animation>
-	</action>
-	<action id="selected">
-		<animation atlas="tile_selected.png" height="32" width="64">
-			<direction delay="10000" dir="0" frames="1" />
-		</animation>
-	</action>
-	<action id="movement">
-		<animation atlas="tile_movement.png" height="32" width="64">
-			<direction delay="10000" dir="0" frames="1" />
-		</animation>
-	</action>
-	<action id="path">
-		<animation atlas="tile_path.png" height="32" width="64">
-			<direction delay="10000" dir="0" frames="1" />
-		</animation>
-	</action>
-	<action id="blocked">
-		<animation atlas="tile_blocked.png" height="32" width="64">
-			<direction delay="10000" dir="0" frames="1" />
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="tile" namespace="tactics" static="1">
+		<action id="transparent">
+			<animation atlas="tile_transparent.png" height="32" width="64">
+				<direction delay="10000" dir="0" frames="1" />
+			</animation>
+		</action>
+		<action id="selected">
+			<animation atlas="tile_selected.png" height="32" width="64">
+				<direction delay="10000" dir="0" frames="1" />
+			</animation>
+		</action>
+		<action id="movement">
+			<animation atlas="tile_movement.png" height="32" width="64">
+				<direction delay="10000" dir="0" frames="1" />
+			</animation>
+		</action>
+		<action id="path">
+			<animation atlas="tile_path.png" height="32" width="64">
+				<direction delay="10000" dir="0" frames="1" />
+			</animation>
+		</action>
+		<action id="blocked">
+			<animation atlas="tile_blocked.png" height="32" width="64">
+				<direction delay="10000" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

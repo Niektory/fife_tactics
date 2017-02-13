@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="0" id="explosion" namespace="tactics" static="0">
-	<action id="none">
-		<animation atlas="explosion.png" height="0" width="0" y_offset="0">
-			<direction delay="100" dir="0" frames="0"/>
-		</animation>
-	</action>
-	<action id="boom">
-		<animation atlas="explosion.png" height="60" width="50" y_offset="-22">
-			<direction delay="100" dir="0" frames="6"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="explosion" namespace="tactics" static="0">
+		<action id="none">
+			<animation atlas="explosion.png" height="0" width="0" y_offset="0">
+				<direction delay="100" dir="0" frames="0" />
+			</animation>
+		</action>
+		<action id="boom">
+			<animation atlas="explosion.png" height="60" width="50" y_offset="-22">
+				<direction delay="100" dir="0" frames="6" />
+			</animation>
+		</action>
+	</object>
+</assets>

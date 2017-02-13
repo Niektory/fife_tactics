@@ -1,13 +1,15 @@
-<?fife type="object"?>
-<object blocking="0" id="shadow" namespace="tactics" static="0">
-	<action id="shadow">
-		<animation atlas="shadow.png" height="15" width="30" y_offset="0">
-			<direction delay="10000" dir="0" frames="1"/>
-		</animation>
-	</action>
-	<action id="ripples">
-		<animation atlas="ripples.png" height="32" width="64" y_offset="0">
-			<direction delay="100" dir="0" frames="1"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="shadow" namespace="tactics" static="0">
+		<action id="shadow">
+			<animation atlas="shadow.png" height="15" width="30" y_offset="0">
+				<direction delay="10000" dir="0" frames="1" />
+			</animation>
+		</action>
+		<action id="ripples">
+			<animation atlas="ripples.png" height="32" width="64" y_offset="0">
+				<direction delay="100" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

@@ -1,4 +1,6 @@
-<?fife type="object"?>
-<object id="dot_red" namespace="tactics" blocking="0" static="1">
-	<image source="dot_red.png" direction="0" y_offset="0" />
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="dot_red" namespace="tactics" static="1">
+		<image direction="0" source="dot_red.png" y_offset="0" />
+	</object>
+</assets>

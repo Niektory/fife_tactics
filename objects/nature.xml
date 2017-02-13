@@ -1,9 +1,10 @@
-<?fife type="atlas"?>
-<atlas name="nature.png" namespace="tactics" width="1024" height="704">
-	<image source="mushroom.png" xpos="704" ypos="640" width="64" height="64"/>
-</atlas>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<atlas source="nature.png" namespace="tactics" width="1024" height="704">
+		<subimage id="mushroom.png" xpos="704" ypos="640" width="64" height="64"/>
+	</atlas>
 
-<object id="mushroom" namespace="tactics" blocking="1" static="1">
-	<image source="mushroom.png" direction="0" y_offset="-15"/>
-</object>
-
+	<object id="mushroom" namespace="tactics" blocking="1" static="1">
+		<image source="mushroom.png" direction="0" y_offset="-15"/>
+	</object>
+</assets>

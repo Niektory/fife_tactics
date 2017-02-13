@@ -1,92 +1,94 @@
-<?fife type="object"?>
-<object blocking="1" id="boy" namespace="tactics" static="0">
-	<action id="stand">
-		<animation atlas="stand.png" height="96" width="96" y_offset="-22">
-			<direction delay="2000" dir="0" frames="1"/>
-			<direction delay="2000" dir="45" frames="1"/>
-			<direction delay="2000" dir="90" frames="1"/>
-			<direction delay="2000" dir="135" frames="1"/>
-			<direction delay="2000" dir="180" frames="1"/>
-			<direction delay="2000" dir="225" frames="1"/>
-			<direction delay="2000" dir="270" frames="1"/>
-			<direction delay="2000" dir="315" frames="1"/>
-		</animation>
-	</action>
-	<action id="cheer">
-		<animation atlas="cheer.png" height="96" width="96" y_offset="-22">
-			<direction delay="50" dir="0" frames="9"/>
-			<direction delay="50" dir="45" frames="9"/>
-			<direction delay="50" dir="90" frames="9"/>
-			<direction delay="50" dir="135" frames="9"/>
-			<direction delay="50" dir="180" frames="9"/>
-			<direction delay="50" dir="225" frames="9"/>
-			<direction delay="50" dir="270" frames="9"/>
-			<direction delay="50" dir="315" frames="9"/>
-		</animation>
-	</action>
-	<action id="kick">
-		<animation atlas="kick.png" height="96" width="96" y_offset="-22">
-			<direction delay="50" dir="0" frames="9"/>
-			<direction delay="50" dir="45" frames="9"/>
-			<direction delay="50" dir="90" frames="9"/>
-			<direction delay="50" dir="135" frames="9"/>
-			<direction delay="50" dir="180" frames="9"/>
-			<direction delay="50" dir="225" frames="9"/>
-			<direction delay="50" dir="270" frames="9"/>
-			<direction delay="50" dir="315" frames="9"/>
-		</animation>
-	</action>
-	<action id="run">
-		<animation atlas="run.png" height="96" width="96" y_offset="-22">
-			<direction delay="100" dir="0" frames="8"/>
-			<direction delay="100" dir="45" frames="8"/>
-			<direction delay="100" dir="90" frames="8"/>
-			<direction delay="100" dir="135" frames="8"/>
-			<direction delay="100" dir="180" frames="8"/>
-			<direction delay="100" dir="225" frames="8"/>
-			<direction delay="100" dir="270" frames="8"/>
-			<direction delay="100" dir="315" frames="8"/>
-		</animation>
-	</action>
-	<action id="stand_water">
-		<animation atlas="stand_water.png" height="96" width="96" y_offset="-6">
-			<direction delay="2000" dir="0" frames="1"/>
-			<direction delay="2000" dir="45" frames="1"/>
-			<direction delay="2000" dir="90" frames="1"/>
-			<direction delay="2000" dir="135" frames="1"/>
-			<direction delay="2000" dir="180" frames="1"/>
-			<direction delay="2000" dir="225" frames="1"/>
-			<direction delay="2000" dir="270" frames="1"/>
-			<direction delay="2000" dir="315" frames="1"/>
-		</animation>
-	</action>
-	<action id="talk">
-		<animation atlas="talk.png" height="96" width="96" y_offset="-22">
-			<direction delay="50" dir="0" frames="9"/>
-			<direction delay="50" dir="45" frames="9"/>
-			<direction delay="50" dir="90" frames="9"/>
-			<direction delay="50" dir="135" frames="9"/>
-			<direction delay="50" dir="180" frames="9"/>
-			<direction delay="50" dir="225" frames="9"/>
-			<direction delay="50" dir="270" frames="9"/>
-			<direction delay="50" dir="315" frames="9"/>
-		</animation>
-	</action>
-	<action id="walk">
-		<animation atlas="walk.png" height="96" width="96" y_offset="-22">
-			<direction delay="130" dir="0" frames="8"/>
-			<direction delay="130" dir="45" frames="8"/>
-			<direction delay="130" dir="90" frames="8"/>
-			<direction delay="130" dir="135" frames="8"/>
-			<direction delay="130" dir="180" frames="8"/>
-			<direction delay="130" dir="225" frames="8"/>
-			<direction delay="130" dir="270" frames="8"/>
-			<direction delay="130" dir="315" frames="8"/>
-		</animation>
-	</action>
-	<action id="dead">
-		<animation atlas="dead.png" height="27" width="27" y_offset="-10">
-			<direction delay="2000" dir="0" frames="1"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="1" id="boy" namespace="tactics" static="0">
+		<action id="stand">
+			<animation atlas="stand.png" height="96" width="96" y_offset="-22">
+				<direction delay="2000" dir="0" frames="1" />
+				<direction delay="2000" dir="45" frames="1" />
+				<direction delay="2000" dir="90" frames="1" />
+				<direction delay="2000" dir="135" frames="1" />
+				<direction delay="2000" dir="180" frames="1" />
+				<direction delay="2000" dir="225" frames="1" />
+				<direction delay="2000" dir="270" frames="1" />
+				<direction delay="2000" dir="315" frames="1" />
+			</animation>
+		</action>
+		<action id="cheer">
+			<animation atlas="cheer.png" height="96" width="96" y_offset="-22">
+				<direction delay="50" dir="0" frames="9" />
+				<direction delay="50" dir="45" frames="9" />
+				<direction delay="50" dir="90" frames="9" />
+				<direction delay="50" dir="135" frames="9" />
+				<direction delay="50" dir="180" frames="9" />
+				<direction delay="50" dir="225" frames="9" />
+				<direction delay="50" dir="270" frames="9" />
+				<direction delay="50" dir="315" frames="9" />
+			</animation>
+		</action>
+		<action id="kick">
+			<animation atlas="kick.png" height="96" width="96" y_offset="-22">
+				<direction delay="50" dir="0" frames="9" />
+				<direction delay="50" dir="45" frames="9" />
+				<direction delay="50" dir="90" frames="9" />
+				<direction delay="50" dir="135" frames="9" />
+				<direction delay="50" dir="180" frames="9" />
+				<direction delay="50" dir="225" frames="9" />
+				<direction delay="50" dir="270" frames="9" />
+				<direction delay="50" dir="315" frames="9" />
+			</animation>
+		</action>
+		<action id="run">
+			<animation atlas="run.png" height="96" width="96" y_offset="-22">
+				<direction delay="100" dir="0" frames="8" />
+				<direction delay="100" dir="45" frames="8" />
+				<direction delay="100" dir="90" frames="8" />
+				<direction delay="100" dir="135" frames="8" />
+				<direction delay="100" dir="180" frames="8" />
+				<direction delay="100" dir="225" frames="8" />
+				<direction delay="100" dir="270" frames="8" />
+				<direction delay="100" dir="315" frames="8" />
+			</animation>
+		</action>
+		<action id="stand_water">
+			<animation atlas="stand_water.png" height="96" width="96" y_offset="-6">
+				<direction delay="2000" dir="0" frames="1" />
+				<direction delay="2000" dir="45" frames="1" />
+				<direction delay="2000" dir="90" frames="1" />
+				<direction delay="2000" dir="135" frames="1" />
+				<direction delay="2000" dir="180" frames="1" />
+				<direction delay="2000" dir="225" frames="1" />
+				<direction delay="2000" dir="270" frames="1" />
+				<direction delay="2000" dir="315" frames="1" />
+			</animation>
+		</action>
+		<action id="talk">
+			<animation atlas="talk.png" height="96" width="96" y_offset="-22">
+				<direction delay="50" dir="0" frames="9" />
+				<direction delay="50" dir="45" frames="9" />
+				<direction delay="50" dir="90" frames="9" />
+				<direction delay="50" dir="135" frames="9" />
+				<direction delay="50" dir="180" frames="9" />
+				<direction delay="50" dir="225" frames="9" />
+				<direction delay="50" dir="270" frames="9" />
+				<direction delay="50" dir="315" frames="9" />
+			</animation>
+		</action>
+		<action id="walk">
+			<animation atlas="walk.png" height="96" width="96" y_offset="-22">
+				<direction delay="130" dir="0" frames="8" />
+				<direction delay="130" dir="45" frames="8" />
+				<direction delay="130" dir="90" frames="8" />
+				<direction delay="130" dir="135" frames="8" />
+				<direction delay="130" dir="180" frames="8" />
+				<direction delay="130" dir="225" frames="8" />
+				<direction delay="130" dir="270" frames="8" />
+				<direction delay="130" dir="315" frames="8" />
+			</animation>
+		</action>
+		<action id="dead">
+			<animation atlas="dead.png" height="27" width="27" y_offset="-10">
+				<direction delay="2000" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>

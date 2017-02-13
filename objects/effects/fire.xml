@@ -1,18 +1,20 @@
-<?fife type="object"?>
-<object blocking="0" id="fire" namespace="tactics" static="0">
-	<action id="none">
-		<animation atlas="fire.png" height="0" width="0" y_offset="0">
-			<direction delay="100" dir="0" frames="0"/>
-		</animation>
-	</action>
-	<action id="burn">
-		<animation atlas="fire.png" height="64" width="64" y_offset="-22">
-			<direction delay="100" dir="0" frames="5"/>
-		</animation>
-	</action>
-	<action id="freeze">
-		<animation atlas="freeze.png" height="64" width="64" y_offset="-12">
-			<direction delay="80" dir="0" frames="1"/>
-		</animation>
-	</action>
-</object>
+<?xml version='1.0' encoding='UTF-8'?>
+<assets>
+	<object blocking="0" id="fire" namespace="tactics" static="0">
+		<action id="none">
+			<animation atlas="fire.png" height="0" width="0" y_offset="0">
+				<direction delay="100" dir="0" frames="0" />
+			</animation>
+		</action>
+		<action id="burn">
+			<animation atlas="fire.png" height="64" width="64" y_offset="-22">
+				<direction delay="100" dir="0" frames="5" />
+			</animation>
+		</action>
+		<action id="freeze">
+			<animation atlas="freeze.png" height="64" width="64" y_offset="-12">
+				<direction delay="80" dir="0" frames="1" />
+			</animation>
+		</action>
+	</object>
+</assets>
